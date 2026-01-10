@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pietro Cascio | Senior Software Engineer & Pluralsight Author</title>
+  <meta name="description" content="Senior Software Engineer & Pluralsight Author.">
+
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'], // Overrides default font
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="bg-white text-gray-900 antialiased font-sans">
+
+<div class="max-w-3xl mx-auto px-6 py-12 md:py-20">
+
+  <nav class="flex justify-between items-center mb-20">
+    <div class="font-bold tracking-tight text-lg">PIETRO CASCIO</div>
+
+    <div class="flex space-x-6 text-sm font-medium text-gray-500">
+      <a href="https://www.linkedin.com/in/pietrocascio/" target="_blank" class="hover:text-black transition-colors">LinkedIn</a>
+      <a href="https://app.pluralsight.com/profile/author/pietro-cascio" target="_blank" class="hover:text-black transition-colors">Pluralsight</a>
+<!--      <a href="/it" class="hover:text-black transition-colors">🇮🇹 Academy</a>-->
+    </div>
+  </nav>
+
+  <section class="mb-24">
+    <div class="flex items-center space-x-4 mb-8">
+      <img src="images/profile.png" alt="Pietro Cascio" class="w-20 h-20 rounded-full object-cover grayscale ring-1 ring-gray-200">
+      <div>
+        <h1 class="text-3xl font-extrabold tracking-tight text-black leading-tight">
+          Senior Software Engineer & <br>Pluralsight Author.
+        </h1>
+        <p class="text-sm text-gray-400 font-medium">Create. Break. Fix. Repeat.</p>
+      </div>
+    </div>
+
+    <p class="text-xl text-gray-500 max-w-2xl leading-relaxed">
+      Hi, I'm <strong>Pietro</strong> (but my teams call me <strong>Piero</strong>). <br>
+      I help engineering teams move from "It works on my machine" to "It works at scale." My work focuses on Java, Spring Boot, and dismantling Hype-Driven Development.
+    </p>
+  </section>
+  <section class="mb-20">
+    <h2 class="text-xs font-bold tracking-widest text-gray-400 uppercase mb-8 border-b border-gray-100 pb-2">
+      // Engineering Philosophy
+    </h2>
+
+    <div class="space-y-4 text-gray-800">
+      <div class="flex items-start">
+        <span class="mr-3 text-gray-400">➔</span>
+        <p><strong>Complexity is the enemy.</strong> If you can't explain the architecture on a napkin, it's too complex.</p>
+      </div>
+      <div class="flex items-start">
+        <span class="mr-3 text-gray-400">➔</span>
+        <p><strong>Boring technology is better.</strong> We choose stability over resume-padding.</p>
+      </div>
+      <div class="flex items-start">
+        <span class="mr-3 text-gray-400">➔</span>
+        <p><strong>Skepticism as a service.</strong> I critique "silver bullet" solutions before they enter your codebase.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="mb-20">
+    <h2 class="text-xs font-bold tracking-widest text-gray-400 uppercase mb-8 border-b border-gray-100 pb-2">
+      // Selected Analysis
+    </h2>
+
+    <a href="articles/hibernate-regret.html" class="group block">
+      <div class="border-l-2 border-gray-100 pl-6 group-hover:border-black transition-colors duration-300">
+        <h3 class="text-xl font-bold mb-2 group-hover:text-purple-700 transition-colors">
+          Why I Regret Using Hibernate's EAGER Fetching
+        </h3>
+        <p class="text-gray-500 mb-2">
+          A production post-mortem on the "N+1 Problem" that crippled our Ride Booking engine during rush hour.
+        </p>
+        <div class="text-xs font-bold text-gray-400 uppercase tracking-wide">
+          Read Analysis &rarr;
+        </div>
+      </div>
+    </a>
+  </section>
+
+  <footer class="pt-10 border-t border-gray-100 text-center text-xs text-gray-400">
+    &copy; 2026 Pietro Cascio. No tracking. No cookies. Just HTML. Built with Tailwind (for science).
+  </footer>
+
+</div>
+
+</body>
+</html>

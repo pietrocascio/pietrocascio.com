@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Why I Regret Using EAGER Fetching | Pietro Cascio</title>
+  <meta name="description" content="A production post-mortem on Hibernate performance issues in a Ride Booking system.">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com?plugins=typography"></script>
+  <script>
+    tailwind.config = {
+      theme: { extend: { fontFamily: { sans: ['Inter', 'sans-serif'], } } }
+    }
+  </script>
+</head>
+<body class="bg-white text-gray-900 antialiased font-sans">
+
+<div class="max-w-2xl mx-auto px-6 py-12 md:py-20">
+
+  <nav class="mb-12">
+    <a href="../index.html" class="text-sm font-bold text-gray-400 hover:text-black transition-colors">
+      &larr; Back to Home
+    </a>
+  </nav>
+
+  <header class="mb-10">
+    <h1 class="text-3xl md:text-4xl font-extrabold tracking-tight text-black mb-4">
+      Why I Regret Using Hibernate's EAGER Fetching.
+    </h1>
+    <div class="text-gray-500 text-sm font-medium">
+      Production Post-Mortem • 4 min read
+    </div>
+  </header>
+
+  <article class="prose prose-lg prose-slate prose-headings:font-bold prose-a:text-blue-600">
+    <p>
+      It was a few years ago. I was working at a <strong>Ride-Hailing company</strong> (similar to Uber/Lyft). We were rebuilding the "My Rides" history screen. The requirements were seemingly simple: show the user their past 50 rides, including the pickup and drop-off points.
+    </p>
+
+    <h3>The Mistake</h3>
+    <p>
+      Our data model had a <code>Ride</code> entity and a list of <code>Waypoints</code> (lat/long coordinates for pickup, stops, and drop-off).
+    </p>
+    <p>
+      I knew the UI <em>always</em> needed to map the route, so I thought I was being efficient by automating the fetch:
+    </p>
+    <pre><code>@Entity
+public class Ride {
+    @OneToMany(fetch = FetchType.EAGER)
+    private List&lt;Waypoint&gt; waypoints;
+    // ...
+}</code></pre>
+    <p>
+      On my local machine, with a seeded database of 5 rides, it was instant. I shipped it.
+    </p>
+
+    <h3>The Failure</h3>
+    <p>
+      Then came the evening rush hour. Thousands of users opened the app to check their ride status or history.
+    </p>
+    <p>
+      <strong>The database CPU spiked to 99%.</strong> Queries began queuing. The entire booking service started timing out. People couldn't book cars.
+    </p>
+
+    <p>
+      I checked the logs and saw the <strong>N+1 Nightmare</strong>.
+      When a user with 50 past rides opened their history, Hibernate didn't run 1 query. It ran:
+    </p>
+    <ul>
+      <li><strong>Query 1:</strong> Select the last 50 rides.</li>
+      <li><strong>Queries 2-51:</strong> Select waypoints for Ride #1, Waypoints for Ride #2... Waypoints for Ride #50.</li>
+    </ul>
+    <p>
+      Multiply that by 10,000 concurrent users. We were hitting the database with <strong>500,000 queries per second</strong> for a simple list view.
+    </p>
+
+    <h3>The Fix</h3>
+    <p>
+      We hot-fixed it by stripping out <code>EAGER</code> and replacing it with a specific JPQL query using <code>JOIN FETCH</code>, loading the waypoints in a single round-trip.
+    </p>
+    <pre><code>SELECT r FROM Ride r
+LEFT JOIN FETCH r.waypoints
+WHERE r.userId = :userId</code></pre>
+
+    <h3>The Lesson</h3>
+    <p>
+      <strong>Convenience is the enemy of Scale.</strong>
+      Hibernate's <code>EAGER</code> fetching is a landmine waiting for your traffic to spike. If you don't know exactly how many SQL statements your code generates, you aren't engineering—you're guessing.
+    </p>
+  </article>
+
+  <div class="mt-16 pt-8 border-t border-gray-100">
+    <a href="https://www.linkedin.com/in/pietrocascio/" target="_blank" class="font-bold text-sm hover:underline">
+      Discuss this on LinkedIn &rarr;
+    </a>
+  </div>
+
+</div>
+</body>
+</html>
