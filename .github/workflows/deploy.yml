@@ -3,7 +3,7 @@ name: Deploy to Namecheap via FTP
 on:
   push:
     branches:
-      - main
+      - master
 
 jobs:
   web-deploy:
