@@ -1,0 +1,68 @@
+---
+layout: base.njk
+title: Senior Software Engineer & Pluralsight Author
+description: I help engineering teams move from "It works on my machine" to "It works at scale."
+---
+
+<section class="mb-24">
+  <div class="flex items-center space-x-4 mb-8">
+    <img src="images/profile.png" alt="Pietro Cascio" class="w-20 h-20 rounded-full object-cover ring-1 ring-gray-200">
+    <div>
+      <h1 class="text-3xl font-extrabold tracking-tight text-black leading-tight">
+        {{ title }}
+      </h1>
+      <p class="text-sm text-gray-400 font-medium">Create. Break. Fix. Repeat.</p>
+    </div>
+  </div>
+
+  <p class="text-xl text-gray-500 max-w-2xl leading-relaxed">
+    Hi, I'm <strong>Pietro</strong> (but my teams call me <strong>Piero</strong>). <br>
+    I help engineering teams move from "It works on my machine" to "It works at scale." My work focuses on Java, Spring Boot, and dismantling Hype-Driven Development.
+  </p>
+</section>
+<section class="mb-20">
+  <h2 class="text-xs font-bold tracking-widest text-gray-400 uppercase mb-8 border-b border-gray-100 pb-2">
+    // Engineering Philosophy
+  </h2>
+
+  <div class="space-y-4 text-gray-800">
+    <div class="flex items-start">
+      <span class="mr-3 text-gray-400">➔</span>
+      <p><strong>Complexity is the enemy.</strong> If you can't explain the architecture on a
+        napkin, it's too complex.</p>
+    </div>
+    <div class="flex items-start">
+      <span class="mr-3 text-gray-400">➔</span>
+      <p><strong>Boring technology is better.</strong> We choose stability over resume-padding.
+      </p>
+    </div>
+    <div class="flex items-start">
+      <span class="mr-3 text-gray-400">➔</span>
+      <p><strong>Skepticism as a service.</strong> I critique "silver bullet" solutions before
+        they enter your codebase.</p>
+    </div>
+  </div>
+</section>
+
+
+<section class="mb-24">
+  <h2 class="text-xs font-bold tracking-widest text-gray-400 uppercase mb-8 border-b border-gray-100 pb-2">
+    // Selected Analysis
+  </h2>
+
+  {%- for post in collections.post -%}
+  <a href="{{ post.url }}" class="group block mb-8">
+    <div class="border-l-2 border-gray-100 pl-6 group-hover:border-black transition-colors duration-300">
+      <h3 class="text-xl font-bold mb-2 group-hover:text-purple-700 transition-colors">
+        {{ post.data.title }}
+      </h3>
+      <p class="text-gray-500 mb-2">
+        {{ post.data.description }}
+      </p>
+      <div class="text-xs font-bold text-gray-400 uppercase tracking-wide">
+        Read Analysis &rarr;
+      </div>
+    </div>
+  </a>
+  {%- endfor -%}
+</section>
