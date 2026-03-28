@@ -112,8 +112,8 @@ immediately, often in ways teams misdiagnose:
 
 This is how **fear-driven development** emerges:
 
-> “Don’t touch that module.”
-> “Only Alex understands this part.”
+> “Don’t touch that module.”  
+> “Only Alex understands this part.”  
 > “It works, leave it alone.”
 
 At that point, delivery velocity is already gone.
@@ -246,5 +246,5 @@ Pietro Cascio is a Senior Software Engineer and Pluralsight Author. He writes ab
 of Java Architecture and Engineering Culture.
 
 <div class="mt-16 pt-8 border-t border-gray-100"> 
-    <a href="https://www.linkedin.com/posts/pietrocascio_softwarearchitecture-technicaldebt-cleancode-activity-7417475717489152000-52OO?utm_source=share&utm_medium=member_desktop&rcm=ACoAAASw7M8BkQrh780Iah0oN8WL-jrJDWofFzw" target="_blank" class="font-bold text-sm hover:underline"> Discuss this on LinkedIn &rarr; </a>
+    <a href="" target="_blank" class="font-bold text-sm hover:underline"> Discuss this on LinkedIn &rarr; </a>
 </div>
