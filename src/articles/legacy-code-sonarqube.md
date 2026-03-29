@@ -23,9 +23,11 @@ Six months.
 
 That’s how old the system was when I was asked to audit it.
 
-It was proudly described as a **greenfield, modern microservices architecture**. New stack. New team. New start. The kind of project that’s supposed to avoid the mistakes of the past.
+It was proudly described as a **greenfield, modern microservices architecture**. New stack. New
+team. New start. The kind of project that’s supposed to avoid the mistakes of the past.
 
-The first thing I did was turn on SonarQube, and not because I’m obsessed with tools, but because there weren’t any guardrails.
+The first thing I did was turn on SonarQube, and not because I’m obsessed with tools, but because
+there weren’t any guardrails.
 
 What showed up looked like this:
 
@@ -37,7 +39,8 @@ What showed up looked like this:
 
 <img src="/images/website/articles/sonar-qube-hell.png"></img>
 
-In under half a year, this system had accumulated **more structural debt** than some ten-year-old monoliths I’ve worked on.
+In under half a year, this system had accumulated **more structural debt** than some ten-year-old
+monoliths I’ve worked on.
 
 That’s when the uncomfortable truth surfaced:
 
@@ -203,7 +206,8 @@ Most importantly:
 
 > **It keeps the cost of change flat longer than “just shipping” ever will.**
 
-When architecture is testable by design, decay becomes visible early, not years later during a rewrite no one planned.
+When architecture is testable by design, decay becomes visible early, not years later during a
+rewrite no one planned.
 
 ## Microservices Don’t Save You from Neglect
 
@@ -257,26 +261,31 @@ Then you have designed a system that will decay very quickly.
 If you want to prevent silent collapse, start here:
 
 1. **Introduce feedback in week one**
+
 - Static analysis
 - Basic quality gates
 - Visible metrics
 
 1. **Treat tests as architecture**
+
 - Not optional
 - Not deferred
 - Not “later”
 
 1. **Raise the bar gradually**
+
 - Start achievable
 - Tighten continuously
 - Never reset to zero
 
 1. **Make decay visible**
+
 - Dashboards
 - Ownership
 - Explicit trade-offs
 
 1. **Remember what speed really is**
+
 - The ability to change safely
 - Repeatedly
 - Under pressure
@@ -291,11 +300,13 @@ Set guardrails early.
 Fail fast on quality.  
 Make architecture executable, not aspirational.
 
-Because every system eventually becomes exactly what its senior engineers tolerated at the beginning.
+Because every system eventually becomes exactly what its senior engineers tolerated at the
+beginning.
 
 ---
 
-Pietro Cascio is a Senior Software Engineer and Pluralsight Author. He writes about the intersection of Java Architecture and Engineering Culture.
+Pietro Cascio is a Senior Software Engineer and Pluralsight Author. He writes about the intersection
+of Java Architecture and Engineering Culture.
 
 <div class="mt-16 pt-8 border-t border-gray-100"> 
     <a href="https://www.linkedin.com/posts/pietrocascio_softwarearchitecture-technicaldebt-cleancode-activity-7417475717489152000-52OO?utm_source=share&utm_medium=member_desktop&rcm=ACoAAASw7M8BkQrh780Iah0oN8WL-jrJDWofFzw" target="_blank" class="font-bold text-sm hover:underline"> Discuss this on LinkedIn &rarr; </a>
