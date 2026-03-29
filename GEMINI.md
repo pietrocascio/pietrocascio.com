@@ -33,8 +33,9 @@ The output will be generated in the `_site/` directory.
 ## Project Structure
 - `src/`: Root directory for all source content.
   - `_includes/`: Contains layouts (e.g., `base.njk`).
-  - `articles/`: Markdown files for blog posts. Each post should have `tags: post` in its front matter to be included in the "Selected Analysis" section on the homepage.
-  - `css/`: Directory for CSS files (currently `styles.css` is empty as Tailwind is loaded via CDN).
+  - `articles/`: Markdown files for blog posts.
+  - `articles.njk`: The main archive page listing all posts.
+  - `css/`: Directory for CSS files.
   - `images/`: Static assets (favicons, profile pictures, logos).
 - `.eleventy.js`: 11ty configuration file (handles passthrough copies for `src/images`).
 - `package.json`: Node.js dependencies and scripts.

@@ -37,7 +37,8 @@ npm run build
 
 ```
 src/
-  ├── index.njk              # Home page (lists articles)
+  ├── index.njk              # Home page (lists 3 most recent articles)
+  ├── articles.njk           # Articles Archive page (lists all articles)
   ├── _includes/
   │   └── base.njk           # Base layout template (used by all pages)
   ├── articles/              # Article markdown files
@@ -46,7 +47,7 @@ src/
   │   └── styles.css         # Custom CSS (minimal, Tailwind via CDN)
   └── images/                # Static images (favicon, profile, icons, etc.)
 
-.eleventy.js                 # Eleventy config (copies images, sets input/output dirs)
+.eleventy.js                 # Eleventy config (copies images, custom filters)
 .github/workflows/
   └── deploy.yml             # GitHub Actions CI/CD pipeline
 ```
@@ -69,20 +70,22 @@ date: YYYY-MM-DD              # Publication date
 ```
 
 **Important:**
-- Only articles tagged with `tags: post` are included in the home page collection (`collections.post`)
-- The `base.njk` layout renders the article with Tailwind's prose classes
+- Only articles tagged with `tags: post` are included in the `collections.post` collection.
+- The **Home Page** (`index.njk`) displays only the **3 most recent posts**.
+- The **Articles Page** (`articles.njk`) displays the **full archive**.
+- The `base.njk` layout renders the article with Tailwind's prose classes.
 
 ### Templating
-- Base layout (`src/_includes/base.njk`) is used by all pages
-- Nunjucks templating syntax: `{{ variable }}`, `{% for ... %}`
-- Tailwind CSS classes applied directly in templates (via CDN)
-- Custom CSS in `src/css/styles.css` is minimal
+- Base layout (`src/_includes/base.njk`) is used by all pages.
+- Nunjucks templating syntax: `{{ variable }}`, `{% for ... %}`.
+- Custom filters: `dateDisplay` (formats dates using Intl.DateTimeFormat).
+- Tailwind CSS classes applied directly in templates (via CDN).
 
 ### Styling
-- Tailwind CSS loaded from CDN in `base.njk` with typography plugin
-- Inter font family from Google Fonts
-- No build step for CSS (all client-side)
-- Custom styles in `styles.css` override or extend Tailwind as needed
+- Tailwind CSS loaded from CDN in `base.njk` with typography plugin.
+- Inter font family from Google Fonts.
+- No build step for CSS (all client-side).
+- Custom styles in `styles.css` override or extend Tailwind as needed.
 
 ## Deployment Pipeline
 
@@ -115,8 +118,9 @@ To deploy: push to `master` branch. GitHub Actions handles the rest.
 - **Input:** `src/`
 - **Output:** `_site/`
 - **Pass-through copy:** Images are copied as-is to output
-- Collections: Articles are automatically collected with tag `post`
-- No custom filters or shortcodes currently defined
+- **Collections:** Articles are automatically collected with tag `post`
+- **Custom Filters:** 
+  - `dateDisplay`: Formats Date objects to "Month Day, Year" (e.g., January 1, 2026).
 
 ## GitHub Actions Secrets
 

@@ -76,8 +76,9 @@ This idea is not new. It has been repeatedly articulated by people who have buil
 real systems for decades, such as **Martin Fowler**, who visualized the trade-off clearly in what he
 called the **Design Stamina Hypothesis**.
 
-<img src="/images/website/articles/design-stamina-hypothesis.png" alt="Design Stamina Hypothesis" />
-*Reference: https://martinfowler.com/bliki/DesignStaminaHypothesis.html*
+<img src="/images/website/articles/design-stamina-hypothesis.png" alt="Design Stamina Hypothesis" />  
+
+_Reference: [Martin Fowler Article](https://martinfowler.com/bliki/DesignStaminaHypothesis.html)_
 
 Two curves tell the whole story:
 * The _“quick and dirty”_ curve rises sharply at the beginning
