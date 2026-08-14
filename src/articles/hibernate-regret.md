@@ -57,4 +57,4 @@ Convenience is the enemy of Scale. Hibernate's EAGER fetching is a landmine. If 
 
 </div>
 
-<div class="mt-16 pt-8 border-t border-gray-100"> <a href="https://www.google.com/url?sa=E&source=gmail&q=https://www.linkedin.com/in/pietrocascio/" target="_blank" class="font-bold text-sm hover:underline"> Discuss this on LinkedIn &rarr; </a> </div>
+<div class="mt-16 pt-8 border-t border-gray-100"> <a href="https://www.linkedin.com/posts/pietrocascio_java-springboot-softwarearchitecture-activity-7416428070867288064-SaU8?utm_source=share&utm_medium=member_desktop&rcm=ACoAAASw7M8BkQrh780Iah0oN8WL-jrJDWofFzw" target="_blank" class="font-bold text-sm hover:underline"> Discuss this on LinkedIn &rarr; </a> </div>
