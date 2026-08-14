@@ -49,13 +49,13 @@ The output will be generated in the `_site/` directory.
 - **Articles:** Created as Markdown files in `src/articles/`. 
 - **Front Matter:** Every article must include:
   ```yaml
-  layout: base.njk
+  layout: post.njk
   title: "Your Title"
   description: "Brief summary"
   tags: post
   date: YYYY-MM-DD
   ```
-- **Layouts:** Use `base.njk` as the primary layout. Content is injected into the `{{ content | safe }}` block.
+- **Layouts:** Use `base.njk` as the primary shell and `post.njk` for individual blog articles with previous/next post navigation. Content is injected into the `{{ content | safe }}` block.
 
 ### Styling
 - **Tailwind CSS:** The site uses the Tailwind CDN in `base.njk`.

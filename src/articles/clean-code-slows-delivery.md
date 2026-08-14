@@ -1,5 +1,5 @@
 ---
-layout: base.njk
+layout: post.njk
 title: Clean code slows delivery
 description: Clean Code Slows Delivery” Is a Lie We Tell Ourselves to Justify Sloppy Engineering.
 tags: post
