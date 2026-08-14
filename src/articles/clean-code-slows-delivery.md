@@ -247,5 +247,5 @@ Pietro Cascio is a Senior Software Engineer and Pluralsight Author. He writes ab
 of Java Architecture and Engineering Culture.
 
 <div class="mt-16 pt-8 border-t border-gray-100"> 
-    <a href="" target="_blank" class="font-bold text-sm hover:underline"> Discuss this on LinkedIn &rarr; </a>
+    <a href="https://www.linkedin.com/feed/update/urn:li:activity:7419340309161050112/" target="_blank" class="font-bold text-sm hover:underline"> Discuss this on LinkedIn &rarr; </a>
 </div>

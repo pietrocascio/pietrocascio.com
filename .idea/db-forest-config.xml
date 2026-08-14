@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="db-forest-configuration">
+    <data version="2">.
+	1:0:1c6ba9f7-eaa8-42d1-bd2d-c31ebb43f3a7:Lazio
+	3:0:b83f5c45-9335-4924-a6b3-1d3a81983d88:APSS - Trento
+	10:0:583841cd-e2bc-4ff0-bc13-065e3bb99c0c:Terni
+	12:0:392a2c4f-90da-4660-a9a6-84634094f83b:Poliambulanza
+	14:0:bd1b870a-5fc9-4dbc-bb66-7a4af27831c7:Giaccone
+	16:0:19234cf7-4edf-46d2-969a-799af65001f8:Asp Catania
+	18:0:c5e5d048-bbce-4fd3-8c89-35f3b16882a9:Basilicata
+	21:0:61aa4a10-904c-4b27-843d-c66acfac879a:Alto Adige
+	23:0:35728804-e4a2-4515-98ba-240bc222563f:Ruad
+	----------------------------------------
+	2:1:37f11482-c2a9-4cbc-84b3-f65ca5c6419e
+	4:3:0583aa8f-80af-4947-bb70-27457f5bba45
+	5:3:16fb7672-00d5-404e-9f85-f09cf4bd3067
+	6:3:2341f305-fd47-433a-9c91-4a982671c052
+	7:3:d9f89443-d282-4799-986e-bdb1660c597f
+	8:3:fb8a34b1-6dcb-4972-bd92-bc89a1205eff
+	9:3:39585400-6ce3-4264-b364-aa5d9824f859
+	11:10:814a4c9e-6012-4823-adf0-3e979a11ea5c
+	13:12:d7ad4002-5bd7-4103-96ef-e8e320d7a870
+	15:14:2f731418-6a16-4b46-8f45-2840f38b5bc5
+	17:16:e4e0a5be-5c4d-4c23-98cf-2746a5a3fa41
+	19:18:93d5b30d-9e2e-45f3-9f80-0f94b70131bc
+	20:18:1f3427a0-76e8-4dad-badd-4a7e2b01fad1
+	22:21:686fc28c-04d7-4ee7-95a7-fd1165de0cc9
+	24:23:d4395379-59ed-4dfc-a01d-995480b8be28
+	25:23:a1d0bf61-cec1-4f4b-969f-e405592f1949
+	26:23:4a3fb6db-733d-4f92-baf6-f650ba8e33f2
+	27:23:111a2591-d709-40ce-a192-2a49574dd543
+	28:0:021428f6-5c7e-48f4-93c5-60611cdc5678
+		.</data>
+  </component>
+</project>
