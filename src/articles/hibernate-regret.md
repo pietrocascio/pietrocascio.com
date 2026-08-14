@@ -1,5 +1,5 @@
 ---
-layout: base.njk
+layout: post.njk
 title: Why I Regret Using Hibernate's EAGER Fetching
 description: A production post-mortem on the "N+1 Problem" that crippled our Ride Booking engine during rush hour.
 tags: post

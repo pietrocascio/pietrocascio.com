@@ -1,5 +1,5 @@
 ---
-layout: base.njk
+layout: post.njk
 title: Legacy Code Isn’t About Age,  It’s About Neglect
 description: Legacy code isn’t created by time, it’s created by what teams tolerate early. This post explores how missing guardrails, absent tests, and unchecked “temporary” shortcuts can turn a brand-new system into technical debt in months, and how senior engineers can stop the silent collapse before it starts.
 tags: post
