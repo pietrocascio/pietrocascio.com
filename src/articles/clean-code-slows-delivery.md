@@ -76,8 +76,9 @@ This idea is not new. It has been repeatedly articulated by people who have buil
 real systems for decades, such as **Martin Fowler**, who visualized the trade-off clearly in what he
 called the **Design Stamina Hypothesis**.
 
-<img src="/images/website/articles/design-stamina-hypothesis.png" alt="Design Stamina Hypothesis" />
-*Reference: https://martinfowler.com/bliki/DesignStaminaHypothesis.html*
+<img src="/images/website/articles/design-stamina-hypothesis.png" alt="Design Stamina Hypothesis" />  
+
+_Reference: [Martin Fowler Article](https://martinfowler.com/bliki/DesignStaminaHypothesis.html)_
 
 Two curves tell the whole story:
 * The _“quick and dirty”_ curve rises sharply at the beginning
@@ -112,8 +113,8 @@ immediately, often in ways teams misdiagnose:
 
 This is how **fear-driven development** emerges:
 
-> “Don’t touch that module.”
-> “Only Alex understands this part.”
+> “Don’t touch that module.”  
+> “Only Alex understands this part.”  
 > “It works, leave it alone.”
 
 At that point, delivery velocity is already gone.
@@ -246,5 +247,5 @@ Pietro Cascio is a Senior Software Engineer and Pluralsight Author. He writes ab
 of Java Architecture and Engineering Culture.
 
 <div class="mt-16 pt-8 border-t border-gray-100"> 
-    <a href="https://www.linkedin.com/posts/pietrocascio_softwarearchitecture-technicaldebt-cleancode-activity-7417475717489152000-52OO?utm_source=share&utm_medium=member_desktop&rcm=ACoAAASw7M8BkQrh780Iah0oN8WL-jrJDWofFzw" target="_blank" class="font-bold text-sm hover:underline"> Discuss this on LinkedIn &rarr; </a>
+    <a href="" target="_blank" class="font-bold text-sm hover:underline"> Discuss this on LinkedIn &rarr; </a>
 </div>
