@@ -47,13 +47,15 @@ The output will be generated in the `_site/` directory.
 
 ### Content Creation
 - **Articles:** Created as Markdown files in `src/articles/`. 
+- **Casing Rule:** Always use **sentence case** for titles, headings, and front matter descriptions (e.g., "Why I regret using Hibernate's EAGER fetching"). **Never** use title case. Only capitalize the first word and proper nouns / acronyms.
 - **Front Matter:** Every article must include:
   ```yaml
   layout: post.njk
-  title: "Your Title"
-  description: "Brief summary"
+  title: "Your title in sentence case"
+  description: "Brief summary in sentence case"
   tags: post
   date: YYYY-MM-DD
+  language: english # 'english' or 'italian'
   ```
 - **Layouts:** Use `base.njk` as the primary shell and `post.njk` for individual blog articles with previous/next post navigation. Content is injected into the `{{ content | safe }}` block.
 

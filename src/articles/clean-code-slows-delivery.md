@@ -1,23 +1,28 @@
 ---
 layout: post.njk
 title: Clean code slows delivery
-description: Clean Code Slows Delivery” Is a Lie We Tell Ourselves to Justify Sloppy Engineering.
+description: '“Clean code slows delivery” is a lie we tell ourselves to justify sloppy engineering.'
 tags: post
 date: 2026-01-20
+language: english
 ---
 
 <header class="mb-10">
     <h1 class="text-3xl md:text-4xl font-extrabold tracking-tight text-black mb-4">
         {{ title }}
     </h1>
-    <div class="text-gray-500 text-sm font-medium">
-        Clean code is not a justification for sloppy engineering • 5 min read
+    <div class="text-gray-500 text-sm font-medium flex flex-wrap items-center gap-2">
+        <span>Clean code is not a justification for sloppy engineering • 5 min read</span>
+        <span class="text-gray-300">•</span>
+        <span class="inline-flex items-center px-2 py-0.5 rounded text-xs font-semibold uppercase tracking-wider {% if language == 'italian' %}bg-emerald-50 text-emerald-700 border border-emerald-100{% else %}bg-purple-50 text-purple-700 border border-purple-100{% endif %}">
+            {{ language }}
+        </span>
     </div>
 </header>
 
 <div class="prose prose-lg prose-slate prose-headings:font-bold prose-a:text-blue-600 max-w-none">
 
-# “Clean Code Slows Delivery” Is a Lie We Tell Ourselves to Justify Sloppy Engineering
+# “Clean code slows delivery” is a lie we tell ourselves to justify sloppy engineering
 
 Every few months, the same argument resurfaces, usually framed as a bold, pragmatic hot take:
 
@@ -36,7 +41,7 @@ apparent, the people who made the call have often moved on.
 
 As engineers and architects, we owe ourselves and our teams a more honest conversation.
 
-## Let’s Be Precise About What We’re Arguing Against
+## Let’s be precise about what we’re arguing against
 
 Before defending clean code, we need to eliminate the strawman.
 If by _clean code_ you mean:
@@ -54,7 +59,7 @@ purpose. No serious architect is advocating for that.
 Real clean code is not about aesthetics or ego.
 It is about **risk management**.
 
-## Clean Code Is About One Thing: Reducing the Cost of Change
+## Clean code is about one thing: reducing the cost of change
 
 Here is the uncomfortable truth many people avoid stating explicitly:
 
@@ -87,7 +92,7 @@ Two curves tell the whole story:
 Then, usually **weeks, not years, into a project**, the curves cross.
 After that point, the “fast” team isn’t fast anymore. They are stuck.
 
-## “We’ll Clean It Up Later” Is a Professional Myth
+## “We’ll clean it up later” is a professional myth
 
 In more than a decade of working on production systems, startups, scale-ups, and large enterprises,
 I have never seen this plan succeed.
@@ -120,7 +125,7 @@ This is how **fear-driven development** emerges:
 At that point, delivery velocity is already gone.
 You just haven’t updated the dashboard yet.
 
-## Local Speed vs. System Speed
+## Local speed vs. system speed
 This is where most debates go wrong.
 
 Teams optimize for **local speed**:
@@ -147,7 +152,7 @@ Clean code reduces the **social cost** of software.
 That’s why senior engineers feel the pain first, because they’re the ones paged at 2 a.m.,
 onboarding new hires, and explaining why a “small change” took three weeks.
 
-## The Data Already Settled This Debate
+## The data already settled this debate
 
 If this were just an opinion, it would be one thing.
 But it isn’t.
@@ -170,7 +175,7 @@ They invest in:
 Messy code does not make you a startup hero.
 It makes you a long-term liability.
 
-## Discipline Is Not Dogmatism
+## Discipline is not dogmatism
 There _is_ a legitimate criticism buried inside anti–clean code rhetoric, and it’s worth addressing
 honestly.
 
@@ -192,7 +197,7 @@ Just:
 * _What reduces risk right now, given what we actually know?_
 That question requires experience, not dogma.
 
-## Architecture Is Not About Control, It’s About Optionality
+## Architecture is not about control, it’s about optionality
 One of the most misunderstood responsibilities of senior engineers and architects is this:
 **Your job is not to predict the future.**
 **Your job is to make the future cheaper.**
@@ -209,7 +214,7 @@ But thinking is not optional.
 You either do it **before** the system calcifies, or you do it **during** an outage with executives
 watching.
 
-## The Rewrite Is the Final Bill
+## The rewrite is the final bill
 There is a predictable endpoint to every “move fast, clean later” story.
 It’s called **the rewrite**.
 Rewrites are rarely acts of innovation.
@@ -218,15 +223,15 @@ invest in sustainability, failure to respect the economics of software.
 
 And rewrites are always more expensive than continuous care.
 
-## The Real Trade-Off (Finally Stated Correctly)
+## The real trade-off (finally stated correctly)
 So no, this debate is not:
 Clean Code **vs.** Velocity
 It is:
-**Local Speed Today** **vs.** **System Speed Tomorrow**
+**Local speed today** **vs.** **system speed tomorrow**
 
 Experienced engineers know which compounds.
 
-## A Question for Senior Engineers
+## A question for senior engineers
 Be honest with yourself, not LinkedIn.
 When was the last time:
 * Skipping quality
@@ -236,7 +241,7 @@ When was the last time:
 Actually resulted in a system you were proud to maintain a year later?
 If the answer is _never_, then the debate is already over.
 
-## Final Thought
+## Final thought
 Clean code is not about being precious.
 It is about being **professional**.
 And professionalism in software is measured by how well your systems withstand the passage of time.
@@ -244,7 +249,7 @@ And professionalism in software is measured by how well your systems withstand t
 ---
 
 Pietro Cascio is a Senior Software Engineer and Pluralsight Author. He writes about the intersection
-of Java Architecture and Engineering Culture.
+of Java architecture and engineering culture.
 
 <div class="mt-16 pt-8 border-t border-gray-100"> 
     <a href="https://www.linkedin.com/feed/update/urn:li:activity:7419340309161050112/" target="_blank" class="font-bold text-sm hover:underline"> Discuss this on LinkedIn &rarr; </a>
