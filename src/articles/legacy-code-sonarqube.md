@@ -1,6 +1,6 @@
 ---
 layout: post.njk
-title: Legacy Code Isn’t About Age,  It’s About Neglect
+title: Legacy code isn’t about age, it’s about neglect
 description: Legacy code isn’t created by time, it’s created by what teams tolerate early. This post explores how missing guardrails, absent tests, and unchecked “temporary” shortcuts can turn a brand-new system into technical debt in months, and how senior engineers can stop the silent collapse before it starts.
 tags: post
 date: 2026-01-15
@@ -36,11 +36,11 @@ there weren’t any guardrails.
 
 What showed up looked like this:
 
-- 🔴 **612 Reliability Issues**
-- 🔴 **4,000+ Maintainability Issues**
-- 🔴 **0.0% Code Coverage**
-- 🔴 **33 Security Hotspots**
-- 🔴 **7.5% Code Duplication**
+- 🔴 **612 reliability issues**
+- 🔴 **4,000+ maintainability issues**
+- 🔴 **0.0% code coverage**
+- 🔴 **33 security hotspots**
+- 🔴 **7.5% code duplication**
 
 <img src="/images/website/articles/sonar-qube-hell.png"></img>
 
@@ -51,7 +51,7 @@ That’s when the uncomfortable truth surfaced:
 
 > **Legacy code isn’t defined by age. It’s defined by neglect.**
 
-## The Myth of “We’ll Fix It Later”
+## The myth of “we’ll fix it later”
 
 When teams see results like this, the reflex is predictable:
 
@@ -75,7 +75,7 @@ It’s **setting entropy as a default**.
 Ignoring quality signals because “the business needs features” is not speed.  
 It’s borrowing against a future you *will* be forced to live in.
 
-## Architecture Is Not Diagrams, It’s Guardrails
+## Architecture is not diagrams, it’s guardrails
 
 We love to talk about architecture in abstract terms:
 
@@ -99,7 +99,7 @@ In practice, architecture is the set of decisions that answer questions like:
 
 If the answer is “nothing happens”, then *that* is your architecture.
 
-## Quality Gates Are Not Bureaucracy
+## Quality gates are not bureaucracy
 
 One of the most damaging beliefs in modern engineering is that quality gates slow teams down.
 
@@ -125,7 +125,7 @@ They are **feedback systems**.
 
 Without feedback, systems don’t stay fast, they drift.
 
-## Tests Are Not About Confidence, They’re About Boundaries
+## Tests are not about confidence, they’re about boundaries
 
 A common misunderstanding is that tests exist primarily to catch bugs.
 
@@ -158,7 +158,7 @@ It means:
 That is not a technical gap.  
 That is a design failure.
 
-## The Speed Trap: Momentum vs. Delivery
+## The speed trap: momentum vs. delivery
 
 There’s a dangerous illusion that early velocity equals success.
 
@@ -193,7 +193,7 @@ It was never fast.
 
 It was **unprotected**.
 
-## Clean Architecture Isn’t Purity — It’s Damage Control
+## Clean architecture isn’t purity — it’s damage control
 
 This is why I obsess over Clean Architecture, and not as dogma, but as **preventive care**.
 
@@ -214,7 +214,7 @@ Most importantly:
 When architecture is testable by design, decay becomes visible early, not years later during a
 rewrite no one planned.
 
-## Microservices Don’t Save You from Neglect
+## Microservices don’t save you from neglect
 
 There’s a special irony when this happens in microservice systems.
 
@@ -235,7 +235,7 @@ If you don’t have guardrails, you don’t get flexibility.
 
 You get **distributed fragility**.
 
-## The Senior Engineer’s Responsibility
+## The senior engineer’s responsibility
 
 This is the part that stings.
 
@@ -261,7 +261,7 @@ If you allow:
 
 Then you have designed a system that will decay very quickly.
 
-## What to Do Differently Next Time
+## What to do differently next time
 
 If you want to prevent silent collapse, start here:
 
@@ -295,7 +295,7 @@ If you want to prevent silent collapse, start here:
 - Repeatedly
 - Under pressure
 
-## Final Thought
+## Final thought
 
 Legacy code isn’t old code.
 
@@ -311,7 +311,7 @@ beginning.
 ---
 
 Pietro Cascio is a Senior Software Engineer and Pluralsight Author. He writes about the intersection
-of Java Architecture and Engineering Culture.
+of Java architecture and engineering culture.
 
 <div class="mt-16 pt-8 border-t border-gray-100"> 
     <a href="https://www.linkedin.com/posts/pietrocascio_softwarearchitecture-technicaldebt-cleancode-activity-7417475717489152000-52OO?utm_source=share&utm_medium=member_desktop&rcm=ACoAAASw7M8BkQrh780Iah0oN8WL-jrJDWofFzw" target="_blank" class="font-bold text-sm hover:underline"> Discuss this on LinkedIn &rarr; </a>

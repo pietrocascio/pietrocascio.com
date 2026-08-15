@@ -59,18 +59,19 @@ Articles are Markdown files in `src/articles/` with YAML front matter:
 
 ```markdown
 ---
-layout: base.njk              # Must use base.njk
-title: Article Title
-description: Short description (used in meta tags)
+layout: post.njk              # Must use post.njk
+title: Article title in sentence case
+description: Short description in sentence case (used in meta tags)
 tags: post                    # MUST be 'post' for articles to appear
 date: YYYY-MM-DD              # Publication date
 language: english             # 'english' or 'italian'
 ---
 
-# Article content in Markdown
+# Article content heading in sentence case
 ```
 
 **Important:**
+- **Casing Rule:** Always use **sentence case** for titles, headings, and front matter descriptions (never title case).
 - Only articles tagged with `tags: post` are included in the `collections.post` collection.
 - The **Home Page** (`index.njk`) displays only the **3 most recent posts**.
 - The **Articles Page** (`articles.njk`) displays the **full archive**.
