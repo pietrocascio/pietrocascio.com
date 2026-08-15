@@ -4,14 +4,19 @@ title: Legacy Code Isn’t About Age,  It’s About Neglect
 description: Legacy code isn’t created by time, it’s created by what teams tolerate early. This post explores how missing guardrails, absent tests, and unchecked “temporary” shortcuts can turn a brand-new system into technical debt in months, and how senior engineers can stop the silent collapse before it starts.
 tags: post
 date: 2026-01-15
+language: english
 ---
 
 <header class="mb-10">
     <h1 class="text-3xl md:text-4xl font-extrabold tracking-tight text-black mb-4">
         {{ title }}
     </h1>
-    <div class="text-gray-500 text-sm font-medium">
-        "Greenfield" project assessment • 5 min read
+    <div class="text-gray-500 text-sm font-medium flex flex-wrap items-center gap-2">
+        <span>"Greenfield" project assessment • 5 min read</span>
+        <span class="text-gray-300">•</span>
+        <span class="inline-flex items-center px-2 py-0.5 rounded text-xs font-semibold uppercase tracking-wider {% if language == 'italian' %}bg-emerald-50 text-emerald-700 border border-emerald-100{% else %}bg-purple-50 text-purple-700 border border-purple-100{% endif %}">
+            {{ language }}
+        </span>
     </div>
 </header>
 
