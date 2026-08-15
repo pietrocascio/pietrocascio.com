@@ -64,6 +64,7 @@ title: Article Title
 description: Short description (used in meta tags)
 tags: post                    # MUST be 'post' for articles to appear
 date: YYYY-MM-DD              # Publication date
+language: english             # 'english' or 'italian'
 ---
 
 # Article content in Markdown

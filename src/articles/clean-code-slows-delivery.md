@@ -1,17 +1,22 @@
 ---
 layout: post.njk
 title: Clean code slows delivery
-description: Clean Code Slows Delivery” Is a Lie We Tell Ourselves to Justify Sloppy Engineering.
+description: 'Clean Code Slows Delivery is a lie we tell ourselves to justify sloppy engineering.'
 tags: post
 date: 2026-01-20
+language: english
 ---
 
 <header class="mb-10">
     <h1 class="text-3xl md:text-4xl font-extrabold tracking-tight text-black mb-4">
         {{ title }}
     </h1>
-    <div class="text-gray-500 text-sm font-medium">
-        Clean code is not a justification for sloppy engineering • 5 min read
+    <div class="text-gray-500 text-sm font-medium flex flex-wrap items-center gap-2">
+        <span>Clean code is not a justification for sloppy engineering • 5 min read</span>
+        <span class="text-gray-300">•</span>
+        <span class="inline-flex items-center px-2 py-0.5 rounded text-xs font-semibold uppercase tracking-wider {% if language == 'italian' %}bg-emerald-50 text-emerald-700 border border-emerald-100{% else %}bg-purple-50 text-purple-700 border border-purple-100{% endif %}">
+            {{ language }}
+        </span>
     </div>
 </header>
 

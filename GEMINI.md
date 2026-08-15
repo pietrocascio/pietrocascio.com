@@ -54,6 +54,7 @@ The output will be generated in the `_site/` directory.
   description: "Brief summary"
   tags: post
   date: YYYY-MM-DD
+  language: english # 'english' or 'italian'
   ```
 - **Layouts:** Use `base.njk` as the primary shell and `post.njk` for individual blog articles with previous/next post navigation. Content is injected into the `{{ content | safe }}` block.
 

@@ -18,9 +18,16 @@ layout: base.njk
     <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
       {% if previousPost %}
       <a href="{{ previousPost.url }}" class="group block p-5 rounded-xl border border-gray-100 hover:border-gray-300 hover:shadow-sm transition-all duration-200 bg-white">
-        <span class="block text-xs font-bold uppercase tracking-wider text-gray-400 mb-2 group-hover:text-black transition-colors">
-          &larr; Older Post
-        </span>
+        <div class="flex items-center justify-between mb-2">
+          <span class="block text-xs font-bold uppercase tracking-wider text-gray-400 group-hover:text-black transition-colors">
+            &larr; Older Post
+          </span>
+          {% if previousPost.data.language %}
+          <span class="inline-flex items-center px-1.5 py-0.5 rounded text-[10px] font-semibold uppercase tracking-wider {% if previousPost.data.language == 'italian' %}bg-emerald-50 text-emerald-700 border border-emerald-100{% else %}bg-purple-50 text-purple-700 border border-purple-100{% endif %}">
+            {{ previousPost.data.language }}
+          </span>
+          {% endif %}
+        </div>
         <span class="block text-base font-bold text-gray-900 group-hover:text-purple-700 transition-colors">
           {{ previousPost.data.title }}
         </span>
@@ -31,9 +38,16 @@ layout: base.njk
 
       {% if nextPost %}
       <a href="{{ nextPost.url }}" class="group block p-5 rounded-xl border border-gray-100 hover:border-gray-300 hover:shadow-sm transition-all duration-200 bg-white md:text-right">
-        <span class="block text-xs font-bold uppercase tracking-wider text-gray-400 mb-2 group-hover:text-black transition-colors">
-          Newer Post &rarr;
-        </span>
+        <div class="flex items-center justify-between md:justify-end md:space-x-2 mb-2">
+          {% if nextPost.data.language %}
+          <span class="inline-flex items-center px-1.5 py-0.5 rounded text-[10px] font-semibold uppercase tracking-wider {% if nextPost.data.language == 'italian' %}bg-emerald-50 text-emerald-700 border border-emerald-100{% else %}bg-purple-50 text-purple-700 border border-purple-100{% endif %}">
+            {{ nextPost.data.language }}
+          </span>
+          {% endif %}
+          <span class="block text-xs font-bold uppercase tracking-wider text-gray-400 group-hover:text-black transition-colors">
+            Newer Post &rarr;
+          </span>
+        </div>
         <span class="block text-base font-bold text-gray-900 group-hover:text-purple-700 transition-colors">
           {{ nextPost.data.title }}
         </span>
