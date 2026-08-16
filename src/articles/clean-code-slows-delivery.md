@@ -1,10 +1,11 @@
 ---
 layout: post.njk
-title: Clean code slows delivery
-description: '“Clean code slows delivery” is a lie we tell ourselves to justify sloppy engineering.'
+title: Clean code and the cost of change
+description: The real trade-off in software delivery is not quality versus velocity, but the cost of improving structure now versus working with it later.
 tags: post
 date: 2026-01-20
 language: english
+linkedin_url: "https://www.linkedin.com/feed/update/urn:li:activity:7419340309161050112/"
 ---
 
 <header class="mb-10">
@@ -12,7 +13,7 @@ language: english
         {{ title }}
     </h1>
     <div class="text-gray-500 text-sm font-medium flex flex-wrap items-center gap-2">
-        <span>Clean code is not a justification for sloppy engineering • 5 min read</span>
+        <span>Software architecture & economics • 6 min read</span>
         <span class="text-gray-300">•</span>
         <span class="inline-flex items-center px-2 py-0.5 rounded text-xs font-semibold uppercase tracking-wider {% if language == 'italian' %}bg-emerald-50 text-emerald-700 border border-emerald-100{% else %}bg-purple-50 text-purple-700 border border-purple-100{% endif %}">
             {{ language }}
@@ -22,235 +23,228 @@ language: english
 
 <div class="prose prose-lg prose-slate prose-headings:font-bold prose-a:text-blue-600 max-w-none">
 
-# “Clean code slows delivery” is a lie we tell ourselves to justify sloppy engineering
+Every few months, some version of the same argument resurfaces:
 
-Every few months, the same argument resurfaces, usually framed as a bold, pragmatic hot take:
+* Clean code is a luxury.
+* We need to move fast; we can clean it up later.
+* Delivery velocity matters more than elegance.
 
-> “Clean code is a luxury.”  
-> “We need to move fast; we can clean it up later.”  
-> “Delivery velocity matters more than elegance.”
+There is a legitimate concern behind this argument. Teams can spend too much time polishing code
+that does not need polishing. Architects can introduce abstractions for problems that do not exist
+yet. Engineers can apply patterns because they have learned the patterns rather than because the
+system needs them.
 
-It sounds practical.
-It sounds business-oriented.
-It even sounds experienced.
-It isn’t.
+I've seen that slow teams down.
 
-This belief survives not because it’s correct, but because the damage it causes is **delayed**,
-distributed, and rarely traced back to the original decision. By the time the consequences are
-apparent, the people who made the call have often moved on.
+But none of those things is what I mean by clean code. Gold-plated abstractions, premature
+generalization, unnecessary indirection, and designing for imaginary futures are forms of
+over-engineering. They increase the cost of change rather than reducing it.
 
-As engineers and architects, we owe ourselves and our teams a more honest conversation.
+The more useful question is what happens to delivery speed when the software has to change again.
 
-## Let’s be precise about what we’re arguing against
+## Delivery speed is the cost of changing a system
 
-Before defending clean code, we need to eliminate the strawman.
-If by _clean code_ you mean:
+We often measure development speed locally: how quickly a ticket gets closed, how soon a feature
+reaches production, whether the team completes its sprint commitments.
 
-* Gold-plated abstractions
-* Over-engineering for imaginary futures
-* Applying patterns because a book said so
-* Indirection without pressure
+Those measures matter, but they capture only part of what makes a team fast.
 
-Then yes, **that slows teams down**.
-But that isn’t clean code.
-That’s **cargo-cult engineering**: copying the _shape_ of good design without understanding its
-purpose. No serious architect is advocating for that.
+Most production software spends far more of its life being changed than being created. Features
+evolve. Requirements change. Bugs appear. Integrations get replaced. Regulations change. What seemed
+like a stable assumption turns out not to be one.
 
-Real clean code is not about aesthetics or ego.
-It is about **risk management**.
+In that environment, delivery velocity depends on how quickly engineers can understand existing
+behavior and change it without introducing unexpected consequences.
 
-## Clean code is about one thing: reducing the cost of change
+This is where clean code has economic value. A well-organized system makes it possible to reason
+about behavior locally. It gives changes a reasonably predictable blast radius. Volatile parts of
+the system are isolated rather than allowed to leak across unrelated components.
 
-Here is the uncomfortable truth many people avoid stating explicitly:
+The point isn't to chase elegance for its own sake. It's to make the next change less painful and
+less risky.
 
-**Delivery velocity is not about how fast you can add new code.**
-**It is about how fast you can safely change existing behavior.**
-
-Most systems don’t fail because they couldn’t ship version 1 quickly enough.
-They fail because version 17 became terrifying to touch.
-
-Clean code optimizes for:
-* **Local reasoning:** understanding behavior without loading the entire system into your head
-* **Predictable behavior:** fewer surprises when you change something
-* **Controlled blast radius:** changes stay where they belong
-* **Change isolation:** volatility doesn’t leak everywhere
-
-In other words, **clean code keeps options open**.
-
-This idea is not new. It has been repeatedly articulated by people who have built and maintained
-real systems for decades, such as **Martin Fowler**, who visualized the trade-off clearly in what he
-called the **Design Stamina Hypothesis**.
+Martin Fowler describes a related idea in the Design Stamina Hypothesis. The basic argument is that
+minimal attention to design can produce faster progress initially, while considered design requires
+some investment. As the system grows, however, poor internal structure increasingly makes new work
+harder.
 
 <img src="/images/website/articles/design-stamina-hypothesis.png" alt="Design Stamina Hypothesis" />  
 
 _Reference: [Martin Fowler Article](https://martinfowler.com/bliki/DesignStaminaHypothesis.html)_
 
-Two curves tell the whole story:
-* The _“quick and dirty”_ curve rises sharply at the beginning
-* The _disciplined design_ curve starts slower
+The important part of that model is not the exact point at which two hypothetical curves cross.
+There is no universal timetable. The useful observation is that development speed is affected by the
+accumulated structure of the system.
 
-Then, usually **weeks, not years, into a project**, the curves cross.
-After that point, the “fast” team isn’t fast anymore. They are stuck.
+A shortcut can absolutely make today's change go faster, but it often means the next few changes
+will cost more.
 
-## “We’ll clean it up later” is a professional myth
+## Why shortcuts become slower over time
 
-In more than a decade of working on production systems, startups, scale-ups, and large enterprises,
-I have never seen this plan succeed.
-Not once.
-Why?
-Because “later” competes with:
-* Roadmaps
-* Deadlines
-* OKRs
-* Revenue pressure
-* Team churn
+"We'll clean it up later" assumes that there will be a convenient point in the future when the team
+has both the motivation and capacity to revisit code that is currently working.
 
-And “later” always loses.
+In my experience, that capacity is difficult to find. Cleanup competes with roadmap commitments,
+deadlines, revenue pressure, operational work, and whatever has become urgent since the initial
+decision.
 
-Technical debt is not paid down in a vacuum. It accrues **interest**, and that interest is paid
-immediately, often in ways teams misdiagnose:
+I ran into this on a project where we needed to integrate with an SMS gateway. We were under
+delivery pressure, so we coupled the implementation directly to that provider rather than taking the
+time to put a proper abstraction around it.
 
-* Pull requests slow to a crawl
-* Code reviews become defensive instead of collaborative
-* Regression testing expands from minutes to days
-* Onboarding stretches from weeks to months
-* Engineers quietly avoid entire areas of the codebase
+That decision did make the initial integration faster. The cost became visible later, when we needed
+to switch providers. What should have been largely an integration change reached further into the
+code because assumptions about the original provider had become part of the implementation. We ended
+up spending considerably more time on the migration than we would have if we had isolated that
+dependency in the first place.
 
-This is how **fear-driven development** emerges:
+The point is not that we should have designed a generic messaging framework able to support every
+provider we could imagine. That would have been another form of over-engineering. We already knew
+that the SMS gateway was an external dependency. Creating a boundary around it would have contained
+something that was outside our control and therefore capable of changing.
 
-> “Don’t touch that module.”  
-> “Only Alex understands this part.”  
-> “It works, leave it alone.”
+The thing about shortcuts is that they don't just disappear. They become part of the environment
+every future change has to deal with.
 
-At that point, delivery velocity is already gone.
-You just haven’t updated the dashboard yet.
+Hidden coupling means an engineer has to investigate more of the system before making a change. Weak
+boundaries mean a modification in one place can affect behavior somewhere unexpected. Tests become
+broader because nobody is quite sure what is isolated. Reviews become slower because reviewers need
+extra context before they can be confident about the change.
 
-## Local speed vs. system speed
-This is where most debates go wrong.
+Eventually, knowledge about risky parts of the system can become concentrated in a few people.
+That's when familiar warnings start appearing: "Don't touch that module," "only Alex understands
+this," or "it works, leave it alone."
 
-Teams optimize for **local speed**:
-* How fast _will this_ ticket get closed
-* How fast _does this_ feature ship?
-* How good _this_ sprint report looks
+By then, technical debt is no longer an abstract future liability. The team is already paying for it
+through additional investigation, coordination, testing, and caution.
 
-But software delivery is not a task list.
-It’s a **system**.
+## Code quality also affects coordination
 
-System speed depends on:
-* How many people can safely change the code in parallel
-* How confidently can the system evolve
-* How predictable releases are
-* How often does production surprise you
+The cost of poor structure doesn't just show up in the code.
 
-Messy code doesn’t just add technical complexity; it also creates **coordination overhead**.
+The same problem appears at a smaller scale in ordinary bug fixing. A bug is reported, fixed,
+tested, and closed. Then it is reopened because the fix broke something elsewhere, or because
+changing that behavior exposed another downstream problem nobody realized was connected.
 
-Every unclear boundary becomes a meeting.
-Every hidden coupling becomes a Slack thread.
-Every implicit assumption becomes tribal knowledge.
-Clean code reduces the **social cost** of software.
+That is not always evidence of poor code. Software has legitimate dependencies, and some defects are
+genuinely difficult to isolate. But when this pattern becomes routine, it often signals that
+engineers are unable to confidently reason about the impact of a local change. Fixing one behavior
+requires understanding an increasingly large part of the system.
 
-That’s why senior engineers feel the pain first, because they’re the ones paged at 2 a.m.,
-onboarding new hires, and explaining why a “small change” took three weeks.
+The resulting cost goes beyond the code. A change with an uncertain blast radius requires more
+regression testing, more review context, and often more people involved in deciding whether it is
+safe to release.
 
-## The data already settled this debate
+Software development is also a coordination problem. Engineers need to determine who owns a change,
+which components it affects, who has enough information to review it, what needs to be tested, and
+who needs to be involved if something goes wrong.
 
-If this were just an opinion, it would be one thing.
-But it isn’t.
-Years of research into software delivery performance, most notably the DORA studies, show the same
-pattern consistently:
+Unclear software boundaries make those questions harder to answer.
 
-High-performing teams have:
-* Higher deployment frequency
-* Lower change failure rates
-* Faster recovery times
+A hidden dependency may require a conversation with another team. An implicit assumption may require
+finding the person who originally implemented the feature. A component with poorly understood
+behavior may require additional reviewers or a larger regression test.
 
-They do **not** trade quality for speed.
+Over time, technical mess turns into managerial mess.
 
-They invest in:
-* Testability
-* Readability
-* Modularity
-* Clear ownership
+That's part of why these effects are so easy to underestimate. The extra cost doesn't show up as a
+line item called "bad code." It shows up as longer pull requests, more time spent figuring things
+out, extra meetings, Slack threads, slower onboarding, cautious releases, and everyone relying on a
+few engineers who know where the bodies are buried.
 
-Messy code does not make you a startup hero.
-It makes you a long-term liability.
+## Quality and delivery performance are not opposites
 
-## Discipline is not dogmatism
-There _is_ a legitimate criticism buried inside anti–clean code rhetoric, and it’s worth addressing
-honestly.
+The assumption behind much of the "clean code slows us down" argument is that teams have to choose
+between moving quickly and engineering carefully.
 
-Some teams absolutely over-engineer.
-Some architects absolutely over-abstract.
-Some codebases are strangled by premature generalization.
-But that is not an argument against clean code.
-It’s an argument against **poor judgment**.
+Research into software delivery performance gives us good reason to question that framing.
 
-Real clean code is pragmatic. It asks one question relentlessly:
+The DORA research has repeatedly examined the capabilities associated with software delivery
+performance and has shown that speed and stability do not have to be opposing outcomes.
+High-performing software organizations can deliver frequently while also maintaining solid
+operational performance.
 
-**What is the simplest structure that keeps this change cheap?**
-Not:
-* “How do we future-proof this?”
-* “How do we make this enterprise-grade?”
-* “Which pattern fits here?”
+That does not prove that a particular definition of "clean code" causes better delivery performance,
+and it would be too strong to use DORA to settle that debate directly. But it does undermine the
+wider assumption that quality must be sacrificed to achieve speed.
 
-Just:
-* _What reduces risk right now, given what we actually know?_
-That question requires experience, not dogma.
+Practices such as testability, modularity, manageable dependencies, and clear ownership matter
+because they reduce the uncertainty involved in changing a system. They make smaller, safer changes
+possible.
 
-## Architecture is not about control, it’s about optionality
-One of the most misunderstood responsibilities of senior engineers and architects is this:
-**Your job is not to predict the future.**
-**Your job is to make the future cheaper.**
+Of course, the opposite extreme isn't great either. I've seen teams hurt their own delivery by
+spending too much time building abstractions for problems that might never show up, or chasing
+architectural purity at the expense of getting things done.
 
-Clean code supports this by:
-* Making behavior explicit
-* Isolating volatility
-* Protecting invariants
-* Allowing systems to evolve without fear
+The relevant question is therefore not whether more design is always better. It is whether the
+structure we are adding reduces the expected cost and risk of changes we have reasonable grounds to
+anticipate.
 
-When people say “clean code slows us down,” what they often mean is:
-_“I don’t want to pay the upfront cost of thinking.”_
-But thinking is not optional.
-You either do it **before** the system calcifies, or you do it **during** an outage with executives
-watching.
+Sometimes the right answer really is a simple, straightforward implementation with almost no
+abstraction. Other times, spending an extra hour to separate two responsibilities saves you days of
+work down the line. Telling the difference is where experience and judgment come in.
 
-## The rewrite is the final bill
-There is a predictable endpoint to every “move fast, clean later” story.
-It’s called **the rewrite**.
-Rewrites are rarely acts of innovation.
-They are admissions of accumulated failure, failure to manage complexity incrementally, failure to
-invest in sustainability, failure to respect the economics of software.
+## Architecture should preserve options
 
-And rewrites are always more expensive than continuous care.
+Senior engineers and architects are sometimes expected to anticipate what a system will need years
+from now. That expectation encourages exactly the kind of speculative design that gives "clean code"
+a bad reputation.
 
-## The real trade-off (finally stated correctly)
-So no, this debate is not:
-Clean Code **vs.** Velocity
-It is:
-**Local speed today** **vs.** **system speed tomorrow**
+The goal isn't to predict the future.
 
-Experienced engineers know which compounds.
+A more practical responsibility is to avoid making likely future changes unnecessarily expensive.
+That means paying attention to where volatility exists, making important behavior explicit,
+protecting genuine invariants, and creating boundaries where evidence shows they are useful.
 
-## A question for senior engineers
-Be honest with yourself, not LinkedIn.
-When was the last time:
-* Skipping quality
-* Ignoring design
-* “Just getting it done.”
+This is optionality in a practical sense. The system does not need to support every imaginable
+future. It needs to avoid unnecessarily locking the team into today's assumptions.
 
-Actually resulted in a system you were proud to maintain a year later?
-If the answer is _never_, then the debate is already over.
+This has an upfront cost. Thinking about boundaries takes time. Writing useful tests takes time.
+Refactoring an awkward implementation before building more behavior on top of it takes time.
 
-## Final thought
-Clean code is not about being precious.
-It is about being **professional**.
-And professionalism in software is measured by how well your systems withstand the passage of time.
+Pretending there isn't a cost only weakens the argument for good engineering. The real question is
+whether those costs are lower than what you'll pay if you keep working around bad structure.
 
----
+That calculation won't always say "add more design," and it shouldn't. Engineering is always a
+trade-off.
 
-Pietro Cascio is a Senior Software Engineer and Pluralsight Author. He writes about the intersection
-of Java architecture and engineering culture.
+## When "later" becomes a rewrite
 
-<div class="mt-16 pt-8 border-t border-gray-100"> 
-    <a href="https://www.linkedin.com/feed/update/urn:li:activity:7419340309161050112/" target="_blank" class="font-bold text-sm hover:underline"> Discuss this on LinkedIn &rarr; </a>
+One possible consequence of letting structural problems accumulate is that incremental change
+eventually becomes so difficult that a rewrite starts to look attractive.
+
+Not every rewrite is evidence of engineering failure. Technology becomes obsolete. Product
+requirements change radically. A system can outgrow assumptions that were entirely reasonable when
+it was built.
+
+But sometimes rewrites happen for a much less interesting reason: the old system has simply become
+so hard to understand and change that starting over looks easier than trying to keep it going.
+
+Those situations are expensive because a rewrite doesn't magically remove all the business
+requirements, edge cases, integrations, operational quirks, and previous decisions buried in the old
+system. The team has to dig up or recreate a lot of that knowledge while still keeping the current
+product running.
+
+Continuous maintenance does not guarantee that a rewrite will never be necessary. It does reduce the
+chance that accumulated, unmanaged complexity becomes the reason for one.
+
+## The trade-off is larger than today's ticket
+
+The clean-code debate gets a lot less interesting when it's reduced to "quality versus velocity."
+Nobody reasonable wants perfect code at any cost, and nobody responsible wants to ship as fast as
+possible without caring what it does to the system.
+
+The practical trade-off is between the cost of improving structure now and the expected cost of
+working with that structure later.
+
+That means some shortcuts are reasonable. A prototype may not need the boundaries of a long-lived
+production service. A feature whose future is genuinely uncertain may not justify an elaborate
+abstraction. A deadline can make accepting technical debt the rational business decision.
+
+But technical debt is a trade, not free speed. The team gets something now and agrees to pay for it
+later through extra work, extra risk, or deliberate remediation.
+
+Good engineering is not about making every piece of code pristine. It is about keeping the software
+economical to change for as long as the business needs to change it.
+
 </div>
