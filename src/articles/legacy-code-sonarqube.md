@@ -1,10 +1,11 @@
 ---
 layout: post.njk
-title: Legacy code isn’t about age, it’s about neglect
-description: Legacy code isn’t created by time, it’s created by what teams tolerate early. This post explores how missing guardrails, absent tests, and unchecked “temporary” shortcuts can turn a brand-new system into technical debt in months, and how senior engineers can stop the silent collapse before it starts.
+title: How a six-month-old system becomes legacy code
+description: How brand-new systems quietly become difficult to maintain, and what senior engineers can do to change the trajectory.
 tags: post
 date: 2026-01-15
 language: english
+linkedin_url: "https://www.linkedin.com/posts/pietrocascio_softwarearchitecture-technicaldebt-cleancode-activity-7417475717489152000-52OO?utm_source=share&utm_medium=member_desktop&rcm=ACoAAASw7M8BkQrh780Iah0oN8WL-jrJDWofFzw"
 ---
 
 <header class="mb-10">
@@ -12,7 +13,7 @@ language: english
         {{ title }}
     </h1>
     <div class="text-gray-500 text-sm font-medium flex flex-wrap items-center gap-2">
-        <span>"Greenfield" project assessment • 5 min read</span>
+        <span>"Greenfield" project assessment • 6 min read</span>
         <span class="text-gray-300">•</span>
         <span class="inline-flex items-center px-2 py-0.5 rounded text-xs font-semibold uppercase tracking-wider {% if language == 'italian' %}bg-emerald-50 text-emerald-700 border border-emerald-100{% else %}bg-purple-50 text-purple-700 border border-purple-100{% endif %}">
             {{ language }}
@@ -22,297 +23,326 @@ language: english
 
 <div class="prose prose-lg prose-slate prose-headings:font-bold prose-a:text-blue-600 max-w-none">
 
-*How brand-new systems quietly become unmaintainable, and what senior engineers can do to stop it.*
+*How brand-new systems quietly become difficult to maintain, and what senior engineers can do to
+change the trajectory.*
 
-Six months.
+The system was only six months old when I was asked to take a look at it.
 
-That’s how old the system was when I was asked to audit it.
+It was a greenfield microservices project: new stack, new team, the kind of environment that should,
+at least in theory, be free from the baggage we usually associate with legacy systems.
 
-It was proudly described as a **greenfield, modern microservices architecture**. New stack. New
-team. New start. The kind of project that’s supposed to avoid the mistakes of the past.
+One of the first things I did was run SonarQube. No meaningful quality gates were in place, so
+static analysis seemed like a reasonable way to get an initial sense of what was happening.
 
-The first thing I did was turn on SonarQube, and not because I’m obsessed with tools, but because
-there weren’t any guardrails.
+The results were not encouraging:
 
-What showed up looked like this:
+* 🔴 **612 reliability issues**
+* 🔴 **More than 4,000 maintainability issues**
+* 🔴 **0.0% code coverage**
+* 🔴 **33 security hotspots**
+* 🔴 **7.5% code duplication**
 
-- 🔴 **612 reliability issues**
-- 🔴 **4,000+ maintainability issues**
-- 🔴 **0.0% code coverage**
-- 🔴 **33 security hotspots**
-- 🔴 **7.5% code duplication**
+<img src="/images/website/articles/sonar-qube-hell.png" alt="SonarQube analysis results" />
 
-<img src="/images/website/articles/sonar-qube-hell.png"></img>
+Those numbers were signals, not a diagnosis. Static analysis cannot tell you whether a system is
+well designed, and a coverage percentage cannot tell you whether tests are useful.
 
-In under half a year, this system had accumulated **more structural debt** than some ten-year-old
-monoliths I’ve worked on.
+But for a codebase that was only six months old, the results gave us plenty of reasons to look more
+closely.
 
-That’s when the uncomfortable truth surfaced:
+Once I did, the reasons behind those numbers were not difficult to find.
 
-> **Legacy code isn’t defined by age. It’s defined by neglect.**
+Automated testing had simply never become part of the team’s normal way of working. Features were
+tested manually before release, but there was almost no automated safety net protecting existing
+behavior.
 
-## The myth of “we’ll fix it later”
+The duplication was also easy to explain. A problem would be solved in one place, then solved again
+elsewhere by copying the implementation rather than stopping to identify the right abstraction. Each
+individual shortcut saved time. After six months, those shortcuts had accumulated into a visible
+structural problem.
 
-When teams see results like this, the reflex is predictable:
+Some security hotspots came from dependencies that had not been kept current. Others were smaller
+issues that nobody had found urgent enough to address.
 
-- “We were under pressure.”
-- “We needed to ship.”
-- “It’s just temporary.”
-- “We’ll clean it up once things stabilize.”
+No single catastrophic architectural decision caused this.
 
-Sometimes those explanations are even accurate.
+That was the interesting part.
 
-But here’s the part we don’t like to talk about:
+The system had reached this point through ordinary development, just without enough feedback to show
+the team where all those local decisions were leading.
 
-**Every system becomes what senior engineers tolerate early.**
+What worried me was not that a young project had technical debt. Every real project does. It was the
+trajectory.
 
-Accepting 0% test coverage in month one is not a temporary shortcut.  
-It’s an **architectural decision**.
+Problems were accumulating quickly, and very little was preventing today’s exception from becoming
+tomorrow’s normal way of working.
 
-Allowing unchecked duplication “just for now” is not pragmatism.  
-It’s **setting entropy as a default**.
+That experience changed how I think about the word *legacy*.
 
-Ignoring quality signals because “the business needs features” is not speed.  
-It’s borrowing against a future you *will* be forced to live in.
+We usually use it as a synonym for old software. But age is only part of the story. A system can
+start to acquire the characteristics of legacy code surprisingly quickly when decisions accumulate
+without feedback.
 
-## Architecture is not diagrams, it’s guardrails
+## How greenfield systems accumulate debt so quickly
 
-We love to talk about architecture in abstract terms:
+Nobody starts a greenfield project intending to create a difficult codebase.
 
-- Boxes and arrows
-- Service boundaries
-- Technology choices
-- Cloud diagrams
+The process is usually far less dramatic.
 
-But none of that stopped this system from decaying in six months.
+A deadline approaches, so tests for one feature are deferred. Two services need similar behavior,
+and duplication is temporarily easier than deciding where that behavior belongs. A static-analysis
+warning is not relevant to the current release, so it is ignored. Then another release arrives with
+another deadline.
 
-Because architecture doesn’t live in slides.
+Each decision can look reasonable in isolation.
 
-**Architecture lives in constraints.**
+The problem is what happens when exceptions accumulate without anything forcing the team to revisit
+them.
 
-In practice, architecture is the set of decisions that answer questions like:
+“We’ll fix it later” assumes there will eventually be a *later* with spare capacity. In practice,
+cleanup competes with roadmap commitments, production issues, new requirements, customer requests,
+and whatever became urgent after the shortcut.
 
-- What happens if someone merges code without tests?
-- What happens if complexity explodes?
-- What happens if a service becomes a dumping ground?
-- What happens if security concerns are “postponed”?
+Working code, however awkward, is rarely the loudest problem in the room.
 
-If the answer is “nothing happens”, then *that* is your architecture.
+This is why the first few months of a system matter so much. Early decisions establish what the team
+considers normal.
 
-## Quality gates are not bureaucracy
+* If merging without tests is always accepted, the next engineer has little reason to believe tests
+  are expected.
+* If duplication is repeatedly waved through during review, the next copy-and-paste implementation
+  does not look unusual.
+* If reliability and security findings can remain unresolved indefinitely without clear ownership,
+  the dashboard eventually becomes background noise.
 
-One of the most damaging beliefs in modern engineering is that quality gates slow teams down.
+Nobody has to decide that quality does not matter.
 
-They don’t.
+The system simply drifts that way, one local decision at a time.
 
-They **surface reality early**, when it’s still cheap.
+Senior engineers have influence over this process, but they are not the only factor. Delivery
+pressure, staffing, management incentives, ownership, and deadlines all shape engineering decisions.
 
-Quality gates are automated expressions of intent:
+A senior engineer's job is not to make those pressures disappear.
 
-- *We don’t merge broken code.*
-- *We don’t accumulate invisible debt.*
-- *We don’t trade long-term viability for short-term momentum.*
+It is to make the consequences of the trade-offs visible.
 
-Examples of meaningful gates:
+## Guardrails change the default
 
-- **Static analysis thresholds** (complexity, duplication, code smells)
-- **Minimum test coverage** that rises gradually over time
-- **Fail-the-build rules** for critical reliability or security issues
-- **Explicit ownership of hotspots**, not silent acceptance
+Architecture is often discussed in terms of service boundaries, technology choices, deployment
+models, and diagrams.
 
-These are not tools of control.  
-They are **feedback systems**.
+Those things matter, but they don't fully describe how a system evolves after the design meeting
+ends.
 
-Without feedback, systems don’t stay fast, they drift.
+A useful architecture also establishes constraints:
 
-## Tests are not about confidence, they’re about boundaries
+* What happens when someone introduces a dependency in the wrong direction?
+* What happens when a critical security issue appears?
+* Can code with known reliability problems be merged?
+* Does a new service need tests before it reaches production?
+* Who owns an exception when the team deliberately accepts one?
 
-A common misunderstanding is that tests exist primarily to catch bugs.
+If the system has no answer to those questions, individual engineers have to decide every time.
 
-That’s only a small part of their value.
+That is where guardrails help.
 
-Tests are **contracts**.
+Static analysis, CI checks, dependency rules, automated testing, security scanning, and ownership
+policies can turn architectural intentions into feedback that appears as work happens.
 
-They define:
+Instead of discovering six months later that thousands of findings have accumulated, the team sees
+problems when they are introduced and can decide whether to fix them or consciously accept the
+trade-off.
 
-- What behavior is stable
-- What assumptions are safe
-- What changes are allowed
-- Where responsibilities stop
+The distinction matters.
 
-In distributed systems, especially, tests become the only enforceable boundaries you actually have.
+A quality gate should not mean that every warning blocks delivery.
 
-Without them:
+Poorly designed gates can absolutely slow teams down. Arbitrary coverage targets can encourage
+low-value tests. Noisy static-analysis rules can teach engineers to ignore the tool. A build that
+fails on findings nobody considers relevant quickly becomes something people work around.
 
-- Refactoring becomes fear-driven
-- Changes become coupled by accident.
-- Services rot into distributed monoliths.
-- Teams slow down *even though* they’re “moving fast”.
+The goal is not maximum enforcement. The goal is **useful feedback**.
 
-0% test coverage doesn’t just mean “we didn’t write tests yet”.
+A good guardrail makes an engineering decision explicit:
 
-It means:
+* Critical security findings may block a build.
+* New code may be expected not to increase duplication.
+* A dependency rule may prevent application logic from depending directly on infrastructure code.
+* Some warnings may simply remain visible so the team can watch their trend.
 
-> **There is no executable definition of correctness in this system.**
+The exact rules will differ between systems. What matters is that the architecture still has a way
+to influence the code after the diagram is finished.
 
-That is not a technical gap.  
-That is a design failure.
+## Tests make assumptions executable
 
-## The speed trap: momentum vs. delivery
+The 0% coverage number in that project was a useful warning sign, but coverage needs careful
+interpretation.
 
-There’s a dangerous illusion that early velocity equals success.
+High coverage does not prove that a system is well tested. You can execute almost every line and
+still miss the behaviors that matter.
 
-But speed without brakes is not delivery.
+When they are useful, automated tests provide something more important: **an executable description
+of the behavior the team wants to preserve**.
 
-It’s **momentum toward failure**.
+* A **unit test** can protect a business rule while its implementation changes.
+* An **integration test** can verify assumptions at a component boundary.
+* A **contract test** can make expectations between independently deployed services explicit.
 
-Early on, everything feels fine:
+Different tests protect different things.
 
-- Changes are easy (because nothing is stable)
-- Refactoring is fast (because nothing is protected)
-- Bugs are manageable (because usage is low)
+Without that safety net, engineers recover those assumptions manually. They read more code,
+reproduce scenarios, ask around for somebody who remembers how the feature behaves, and expand
+regression testing because nobody is completely confident about what a change might affect.
 
-Then usage grows.
+You see this in ordinary bug fixing.
 
-Teams change.
+A defect gets reported, fixed, tested, and closed. Then it is reopened because the fix broke
+something elsewhere, or because changing that behavior exposed another downstream dependency nobody
+realized was involved.
 
-Requirements shift.
+That does not automatically mean the code is poorly designed. Real systems have real dependencies,
+and some defects are difficult to isolate.
 
-And suddenly:
+But when the pattern becomes routine, engineers can no longer confidently reason about the impact of
+a local change.
 
-- Every change breaks something unexpected.
-- Deployment becomes risky
-- Lead time explodes
-- “Just touching that service” becomes scary.
+Tests are not the only mechanism that protects boundaries. APIs, schemas, dependency rules, access
+controls, and deployment boundaries all matter.
 
-That’s when people say:
+But tests are one way architectural assumptions stop being documentation and become something the
+team can check every day.
 
-> “It used to be so fast.”
+## Microservices amplify weak engineering defaults
 
-It was never fast.
+The fact that this system used microservices made the situation more interesting.
 
-It was **unprotected**.
+Microservices are often adopted partly to increase autonomy. Services can evolve independently,
+reflect business boundaries, and in some organizations be deployed on different schedules.
 
-## Clean architecture isn’t purity — it’s damage control
+But more autonomy makes a small number of shared engineering constraints more important, not less.
 
-This is why I obsess over Clean Architecture, and not as dogma, but as **preventive care**.
+In a monolith, inconsistent practices at least live inside one repository and one deployment
+boundary.
 
-Clean Architecture doesn’t promise elegance.  
-It promises **containment**.
+In a microservices environment, inconsistency can spread across dozens of repositories and teams:
 
-Its real benefits show up under pressure:
+* One service has solid automated tests while another has almost none.
+* One team treats security findings seriously while another ignores them.
+* Similar business logic is implemented repeatedly because every service is considered independent.
 
-- Business rules don’t leak into frameworks.
-- Tests don’t depend on infrastructure.
-- Dependencies point inward, not outward.
-- Volatility is isolated, not amplified.
+At the same time, those services may not be nearly as independent as the architecture diagram
+suggests.
 
-Most importantly:
+They can become tightly coupled through synchronous calls, shared databases, event schemas,
+duplicated business rules, or assumptions about deployment order.
 
-> **It keeps the cost of change flat longer than “just shipping” ever will.**
+You can end up with all the operational complexity of microservices without much of the independence
+they were supposed to provide.
 
-When architecture is testable by design, decay becomes visible early, not years later during a
-rewrite no one planned.
+That is why service boundaries alone don't keep a system maintainable. You can have a beautiful
+architecture diagram and still end up with services nobody feels safe changing.
 
-## Microservices don’t save you from neglect
+## Early speed can hide the trajectory
 
-There’s a special irony when this happens in microservice systems.
+Young systems are forgiving.
 
-Microservices are often chosen to *avoid* legacy problems.
+There is less code to understand. Fewer customers depend on existing behavior. The engineers who
+built the first version are still around and remember why they made the decisions.
 
-But without discipline, they **multiply them**.
+That can create a misleading sense of velocity.
 
-Instead of one decaying codebase, you get:
+As the product grows, the conditions change.
 
-- Dozens of under-tested services
-- Inconsistent standards
-- Hidden coupling through data and behavior
-- No single place where quality is enforced
+More behavior must remain stable. Teams change. Integrations accumulate. Customers begin relying on
+edge cases nobody originally considered important.
 
-Microservices amplify **both** good practices and bad ones.
+At that point, internal structure starts showing up in everyday delivery work.
 
-If you don’t have guardrails, you don’t get flexibility.
+A change with an uncertain blast radius requires more investigation. A poorly isolated service
+requires broader regression testing. A component understood by only one engineer becomes a
+scheduling constraint. Releases become more cautious because the team has learned that apparently
+local changes sometimes have unexpected consequences.
 
-You get **distributed fragility**.
+The project has not suddenly become slow.
 
-## The senior engineer’s responsibility
+The cost was accumulating all along. The system was simply young enough to hide it.
 
-This is the part that stings.
+That is why early velocity does not tell you everything about the health of a greenfield project.
 
-Legacy systems don’t usually fail because of juniors.
+A more useful question is whether each month of development is making the next month easier or
+harder.
 
-They fail because seniors didn’t draw lines early.
+## What senior engineers should establish early
 
-Not out of malice.  
-Out of empathy.  
-Out of “being pragmatic.”  
-Out of wanting to help the team move faster.
+Senior engineers cannot eliminate technical debt, and they should not try.
 
-But architecture is not what you design.
+Sometimes debt is the right business decision. A real deadline may justify an implementation
+everyone knows will eventually need revisiting.
 
-It’s what you **refuse to accept**.
+The important thing is knowing the difference between a conscious trade-off and an accidental
+default.
 
-If you allow:
+There are a few practices I would want in place early:
 
-- No tests
-- No quality signals
-- No boundaries
-- No consequences
+### 1. Introduce feedback early
 
-Then you have designed a system that will decay very quickly.
+Static analysis, security scanning, dependency checks, and basic CI rules are easier to establish
+while the codebase is small.
 
-## What to do differently next time
+The first rules do not need to be aggressive. They need to make the direction of travel visible.
 
-If you want to prevent silent collapse, start here:
+### 2. Protect important behavior
 
-1. **Introduce feedback in week one**
+Do not chase coverage percentages for their own sake.
 
-- Static analysis
-- Basic quality gates
-- Visible metrics
+Identify the business rules, integrations, and boundaries where an unnoticed regression would be
+expensive, and protect those areas with useful automated tests.
 
-1. **Treat tests as architecture**
+### 3. Raise standards as the system matures
 
-- Not optional
-- Not deferred
-- Not “later”
+A prototype and a production system do not need identical constraints.
 
-1. **Raise the bar gradually**
+Start with rules the team can realistically follow, then tighten them as the cost of failure and
+change increases.
 
-- Start achievable
-- Tighten continuously
-- Never reset to zero
+### 4. Make debt visible and owned
 
-1. **Make decay visible**
+A deliberately accepted shortcut is different from a forgotten one.
 
-- Dashboards
-- Ownership
-- Explicit trade-offs
+Record important exceptions, make ownership clear, and keep the accumulated cost visible enough that
+remediation can eventually compete with feature work.
 
-1. **Remember what speed really is**
+### 5. Treat recurring exceptions as architectural information
 
-- The ability to change safely
-- Repeatedly
-- Under pressure
+If engineers constantly need to bypass the same rule, the rule may be wrong.
 
-## Final thought
+If the same kind of coupling, duplication, or defect keeps appearing, the design may be telling you
+something.
 
-Legacy code isn’t old code.
+Guardrails should inform senior engineers, not replace their judgment.
 
-It’s code that no one protected when it mattered most.
+## Legacy is a trajectory, not an age
 
-Set guardrails early.  
-Fail fast on quality.  
-Make architecture executable, not aspirational.
+I would never use a SonarQube dashboard to declare a system “legacy,” and I would not treat coverage
+or maintainability findings as a scorecard for architectural quality.
 
-Because every system eventually becomes exactly what its senior engineers tolerated at the
-beginning.
+What that six-month audit showed me was something more useful.
 
----
+A new codebase does not stay healthy simply because it started with a clean slate.
 
-Pietro Cascio is a Senior Software Engineer and Pluralsight Author. He writes about the intersection
-of Java architecture and engineering culture.
+From the first release, it starts accumulating decisions: what gets tested, what gets ignored, which
+dependencies are acceptable, which exceptions become normal, and which problems somebody is expected
+to own.
 
-<div class="mt-16 pt-8 border-t border-gray-100"> 
-    <a href="https://www.linkedin.com/posts/pietrocascio_softwarearchitecture-technicaldebt-cleancode-activity-7417475717489152000-52OO?utm_source=share&utm_medium=member_desktop&rcm=ACoAAASw7M8BkQrh780Iah0oN8WL-jrJDWofFzw" target="_blank" class="font-bold text-sm hover:underline"> Discuss this on LinkedIn &rarr; </a>
+Senior engineers shape that trajectory by putting feedback mechanisms and constraints in place that
+make those decisions visible.
+
+The goal is not to prevent every shortcut. It is to know when you are taking one, and to understand
+what you are trading for it.
+
+> **Legacy is not just about age. It is the result of decisions accumulating faster than the system
+can correct them.**
+
+Sometimes, six months is enough.
+
 </div>
