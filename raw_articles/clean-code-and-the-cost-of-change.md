@@ -1,27 +1,4 @@
----
-layout: post.njk
-title: Clean code and the cost of change
-description: The real trade-off in software delivery is not quality versus velocity, but the cost of improving structure now versus working with it later.
-tags: post
-date: 2026-01-20
-language: english
-linkedin_url: "https://www.linkedin.com/feed/update/urn:li:activity:7419340309161050112/"
----
-
-<header class="mb-10">
-    <h1 class="text-3xl md:text-4xl font-extrabold tracking-tight text-black mb-4">
-        {{ title }}
-    </h1>
-    <div class="text-gray-500 text-sm font-medium flex flex-wrap items-center gap-2">
-        <span>Software architecture & economics • 6 min read</span>
-        <span class="text-gray-300">•</span>
-        <span class="inline-flex items-center px-2 py-0.5 rounded text-xs font-semibold uppercase tracking-wider {% if language == 'italian' %}bg-emerald-50 text-emerald-700 border border-emerald-100{% else %}bg-purple-50 text-purple-700 border border-purple-100{% endif %}">
-            {{ language }}
-        </span>
-    </div>
-</header>
-
-<div class="prose prose-lg prose-slate prose-headings:font-bold prose-a:text-blue-600 max-w-none">
+# Clean code and the cost of change
 
 Every few months, some version of the same argument resurfaces:
 
@@ -52,10 +29,6 @@ This is where clean code has economic value. A well-organized system makes it po
 The point isn't to chase elegance for its own sake. It's to make the next change less painful and less risky.
 
 Martin Fowler describes a related idea in the Design Stamina Hypothesis. The basic argument is that minimal attention to design can produce faster progress initially, while considered design requires some investment. As the system grows, however, poor internal structure increasingly makes new work harder.
-
-<img src="/images/website/articles/design-stamina-hypothesis.png" alt="Design Stamina Hypothesis" />  
-
-_Reference: [Martin Fowler Article](https://martinfowler.com/bliki/DesignStaminaHypothesis.html)_
 
 The important part of that model is not the exact point at which two hypothetical curves cross. There is no universal timetable. The useful observation is that development speed is affected by the accumulated structure of the system.
 
@@ -158,5 +131,3 @@ That means some shortcuts are reasonable. A prototype may not need the boundarie
 But technical debt is a trade, not free speed. The team gets something now and agrees to pay for it later through extra work, extra risk, or deliberate remediation.
 
 Good engineering is not about making every piece of code pristine. It is about keeping the software economical to change for as long as the business needs to change it.
-
-</div>

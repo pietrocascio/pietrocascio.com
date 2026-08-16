@@ -5,6 +5,7 @@ description: Legacy code isn’t created by time, it’s created by what teams t
 tags: post
 date: 2026-01-15
 language: english
+linkedin_url: "https://www.linkedin.com/posts/pietrocascio_softwarearchitecture-technicaldebt-cleancode-activity-7417475717489152000-52OO?utm_source=share&utm_medium=member_desktop&rcm=ACoAAASw7M8BkQrh780Iah0oN8WL-jrJDWofFzw"
 ---
 
 <header class="mb-10">
@@ -308,11 +309,4 @@ Make architecture executable, not aspirational.
 Because every system eventually becomes exactly what its senior engineers tolerated at the
 beginning.
 
----
-
-Pietro Cascio is a Senior Software Engineer and Pluralsight Author. He writes about the intersection
-of Java architecture and engineering culture.
-
-<div class="mt-16 pt-8 border-t border-gray-100"> 
-    <a href="https://www.linkedin.com/posts/pietrocascio_softwarearchitecture-technicaldebt-cleancode-activity-7417475717489152000-52OO?utm_source=share&utm_medium=member_desktop&rcm=ACoAAASw7M8BkQrh780Iah0oN8WL-jrJDWofFzw" target="_blank" class="font-bold text-sm hover:underline"> Discuss this on LinkedIn &rarr; </a>
 </div>

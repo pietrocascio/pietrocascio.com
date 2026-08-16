@@ -5,6 +5,7 @@ description: A production post-mortem on the "N+1 problem" that crippled our rid
 tags: post
 date: 2026-01-11
 language: english
+linkedin_url: "https://www.linkedin.com/posts/pietrocascio_java-springboot-softwarearchitecture-activity-7416428070867288064-SaU8?utm_source=share&utm_medium=member_desktop&rcm=ACoAAASw7M8BkQrh780Iah0oN8WL-jrJDWofFzw"
 ---
 
 <header class="mb-10">
@@ -61,5 +62,3 @@ WHERE r.userId = :userId
 Convenience is the enemy of scale. Hibernate's EAGER fetching is a landmine. If you don't know exactly how many SQL statements your code generates, you aren't engineering—you're guessing.
 
 </div>
-
-<div class="mt-16 pt-8 border-t border-gray-100"> <a href="https://www.linkedin.com/posts/pietrocascio_java-springboot-softwarearchitecture-activity-7416428070867288064-SaU8?utm_source=share&utm_medium=member_desktop&rcm=ACoAAASw7M8BkQrh780Iah0oN8WL-jrJDWofFzw" target="_blank" class="font-bold text-sm hover:underline"> Discuss this on LinkedIn &rarr; </a> </div>

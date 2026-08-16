@@ -5,6 +5,18 @@ layout: base.njk
 <article>
   {{ content | safe }}
 
+  <div class="mt-16 pt-8 border-t border-gray-100">
+    <p class="text-base text-gray-600 leading-relaxed mb-6">
+      Pietro Cascio is a Senior Software Engineer and Pluralsight Author. He writes about the intersection of Java architecture and engineering culture.
+    </p>
+    {% set postLinkedin = linkedin_url or linkedin_link or linkedin %}
+    {% if postLinkedin %}
+    <a href="{{ postLinkedin }}" target="_blank" class="font-bold text-sm text-black hover:underline inline-flex items-center">
+      Discuss this on LinkedIn &rarr;
+    </a>
+    {% endif %}
+  </div>
+
   {% set previousPost = collections.post | getPreviousCollectionItem(page) %}
   {% set nextPost = collections.post | getNextCollectionItem(page) %}
 
