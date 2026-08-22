@@ -47,6 +47,7 @@ src/
   │   └── styles.css         # Custom CSS (minimal, Tailwind via CDN)
   └── images/                # Static images (favicon, profile, icons, etc.)
 
+IDEAS.md                     # Idea storage, episode backlog, and article pitch templates
 .eleventy.js                 # Eleventy config (copies images, custom filters)
 .github/workflows/
   └── deploy.yml             # GitHub Actions CI/CD pipeline
@@ -76,6 +77,16 @@ language: english             # 'english' or 'italian'
 - The **Home Page** (`index.njk`) displays only the **3 most recent posts**.
 - The **Articles Page** (`articles.njk`) displays the **full archive**.
 - The `base.njk` layout renders the article with Tailwind's prose classes.
+- **Article Length Tiers:**
+  - *Quick Code Fixes / Snippets:* 400–800 words
+  - *Standard Feature Explanations / Essays:* 1,000–1,500 words
+  - *Tutorials and How-To Guides:* 1,500–2,500 words
+  - *Deep Dives / Pillar Architecture Guides:* 3,000+ words
+
+### LinkedIn Content Guidelines
+- **Ideal Length:** 1,300–2,000 characters (200–350 words). Absolute maximum: 3,000 characters.
+- **The Hook (First 150–200 characters):** Must immediately state the core technical problem or bold takeaway before the "See more..." fold.
+- **Structure & Formatting:** 1–2 sentence paragraphs, generous white space, front-loaded technical insights/data, ending with a link to the article.
 
 ### Templating
 - Base layout (`src/_includes/base.njk`) is used by all pages.

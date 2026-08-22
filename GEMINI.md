@@ -39,6 +39,7 @@ The output will be generated in the `_site/` directory.
   - `images/`: Static assets (favicons, profile pictures, logos).
 - `.eleventy.js`: 11ty configuration file (handles passthrough copies for `src/images`).
 - `package.json`: Node.js dependencies and scripts.
+- `IDEAS.md`: Idea storage, episode backlog, and article pitch templates.
 - `_site/`: The generated static site (excluded from version control).
 
 ---
@@ -58,6 +59,19 @@ The output will be generated in the `_site/` directory.
   language: english # 'english' or 'italian'
   ```
 - **Layouts:** Use `base.njk` as the primary shell and `post.njk` for individual blog articles with previous/next post navigation. Content is injected into the `{{ content | safe }}` block.
+- **Article Length Tiers:**
+  - *Quick Code Fixes / Snippets:* 400–800 words
+  - *Standard Feature Explanations / Essays:* 1,000–1,500 words
+  - *Tutorials and How-To Guides:* 1,500–2,500 words
+  - *Deep Dives / Pillar Architecture Guides:* 3,000+ words
+
+### Social & LinkedIn Publishing Guidelines
+When generating companion technical posts for LinkedIn:
+- **Length Sweet Spot:** 1,300–2,000 characters (roughly 200–350 words). Hard maximum limit is 3,000 characters.
+- **The Hook (First 150–200 characters):** Must immediately state the core technical problem, provocative dilemma, or bold takeaway before the "See more..." fold.
+- **Formatting:** Short 1–2 sentence paragraphs with generous white space, bullet points, and high readability.
+- **Front-load Value:** Place the core code insight, empirical data, or architectural rule early to incentivize expansion.
+- **Tone & CTA:** High-authority, practical for engineering leaders/developers, concluding with a direct link to the blog post.
 
 ### Styling
 - **Tailwind CSS:** The site uses the Tailwind CDN in `base.njk`.
