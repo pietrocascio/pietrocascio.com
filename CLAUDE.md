@@ -143,3 +143,14 @@ Required for deployment (set in repository settings):
 - `FTP_PASSWORD` - FTP password
 
 Do not commit these values.
+
+## Agent skills
+
+### Issue tracker
+
+GitHub issues via `gh` CLI. See `docs/agents/issue-tracker.md`.
+
+### Domain docs
+
+Single-context repository. See `docs/agents/domain.md`.
+
