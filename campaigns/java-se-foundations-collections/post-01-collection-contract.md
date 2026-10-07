@@ -1,8 +1,7 @@
 # Post 1 — The Collection Contract (Module 1)
 
-- **Status:** Drafted, ready for review
--
-**Course:** [Java SE Foundations: Collections](http://www.pluralsight.com/courses/java-se-foundations-collections)
+- **Status:** Published on LinkedIn 2026-10-07
+- **Course:** [Java SE Foundations: Collections](http://www.pluralsight.com/courses/java-se-foundations-collections)
 - **Module covered:** 1 — The Collection Contract
 - **Format:** LinkedIn text post, per `resources/Author LinkedIn Social Sharing One-Sheeter.pdf`
 - **Image:** Module 1 title slide ("Java SE Foundations: Collections" / "The collection contract", author photo) attached to the post.
