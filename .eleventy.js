@@ -1,6 +1,7 @@
 module.exports = function(eleventyConfig) {
   // Tell 11ty to copy your image to the final build
   eleventyConfig.addPassthroughCopy("src/images");
+  eleventyConfig.addPassthroughCopy("src/css");
 
   eleventyConfig.addFilter("dateDisplay", (dateObj) => {
     return new Intl.DateTimeFormat("en-US", {
