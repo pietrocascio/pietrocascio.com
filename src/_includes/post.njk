@@ -68,3 +68,11 @@ layout: base.njk
     </div>
   </nav>
 </article>
+
+<!-- Click-to-zoom for article images (progressive enhancement: images display normally without JS) -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/medium-zoom/1.1.0/medium-zoom.min.js"
+        integrity="sha384-o0gqi06am9fKVfa/jWO8/UE7OxHG6t+fgq/XaASsuwT8OBsFcxN7YhjtqyTfIxtS"
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script>
+  mediumZoom('article .prose img', {margin: 24, background: 'rgba(255, 255, 255, 0.96)'});
+</script>
