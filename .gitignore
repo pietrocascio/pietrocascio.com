@@ -80,3 +80,9 @@ fabric.properties
 node_modules/
 # Ignore generated files from VCS
 _site/
+
+# Agent skills (installed via `npx skills add mattpocock/skills -a claude-code`; skills-lock.json is kept)
+.claude/skills/
+.agents/skills/
+# Private reference material (e.g. Pluralsight author documents), never committed
+resources/
