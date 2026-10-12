@@ -12,6 +12,9 @@ A persistent storage and backlog for technical article concepts, production epis
 | 🚀 Published | [Clean code and the cost of change](src/articles/clean-code-slows-delivery.md) | Standard Essay (1,000–1,500w) | 2026-01-20 |
 | 🚀 Published | [How a six-month-old system becomes legacy code](src/articles/legacy-code-sonarqube.md) | Standard Essay (1,000–1,500w) | 2026-01-15 |
 | 🚀 Published | [Why I regret using Hibernate's EAGER fetching](src/articles/hibernate-regret.md) | Quick Code Fix (400–800w) | 2025-11-10 |
+| ✍️ Drafting | *Why I'm writing about the engineering of AI agents, not the models* (AI series #1, see [campaigns/ai-assisted-programming/SERIES.md](campaigns/ai-assisted-programming/SERIES.md)) | Standard Essay (1,000–1,500w) | 2026-10-12 |
+| 📝 Outlined | *The model is the smallest part of your coding agent* (AI series #2) | Standard Essay (1,000–1,500w) | 2026-10-12 |
+| 📝 Outlined | *What you tell an agent, what you enforce, and what you keep for yourself* (AI series #3) | Standard Essay (1,000–1,500w) | 2026-10-12 |
 | 💡 Seed | *The mock-heavy test suite that test nothing* | Standard Essay (1,000–1,500w) | 2026-08-22 |
 | 💡 Seed | *When microservices become a distributed monolith: the synchronous HTTP trap* | Deep Dive (3,000+w) | 2026-08-22 |
 
