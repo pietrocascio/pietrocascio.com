@@ -1,0 +1,44 @@
+---
+layout: base.njk
+title: Pluralsight courses
+description: Video courses on Java and enterprise engineering, published on Pluralsight.
+permalink: /courses/
+---
+
+<header class="mb-16">
+  <h1 class="text-3xl md:text-4xl font-extrabold tracking-tight text-black mb-4">
+    Pluralsight courses
+  </h1>
+  <p class="text-xl text-gray-500 max-w-2xl leading-relaxed">
+    Video courses on Java and enterprise engineering, published on Pluralsight.
+  </p>
+</header>
+
+<section class="mb-24">
+  {%- for course in collections.course | reverse -%}
+  <a href="{{ course.url }}" class="group block mb-12">
+    <div class="border-l-2 border-gray-100 pl-6 group-hover:border-black transition-colors duration-300">
+      <div class="flex items-center space-x-2.5 mb-2">
+        <span class="text-xs font-bold text-gray-400 uppercase tracking-widest">
+          {{ course.date | dateDisplay if course.date else "" }}
+        </span>
+        {% if course.data.language %}
+        <span class="text-gray-300">•</span>
+        <span class="inline-flex items-center px-2 py-0.5 rounded text-xs font-semibold uppercase tracking-wider {% if course.data.language == 'italian' %}bg-emerald-50 text-emerald-700 border border-emerald-100{% else %}bg-purple-50 text-purple-700 border border-purple-100{% endif %}">
+          {{ course.data.language }}
+        </span>
+        {% endif %}
+      </div>
+      <h3 class="text-2xl font-bold mb-3 group-hover:text-purple-700 transition-colors">
+        {{ course.data.title }}
+      </h3>
+      <p class="text-gray-500 mb-4 leading-relaxed">
+        {{ course.data.description }}
+      </p>
+      <div class="text-sm font-bold text-gray-900 uppercase tracking-wide">
+        Read full post &rarr;
+      </div>
+    </div>
+  </a>
+  {%- endfor -%}
+</section>
