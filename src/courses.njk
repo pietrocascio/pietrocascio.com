@@ -15,6 +15,29 @@ permalink: /courses/
 </header>
 
 <section class="mb-24">
+  {%- for course in courses -%}
+  <a href="{{ course.url }}" target="_blank" rel="noopener" class="group block mb-12">
+    <div class="border-l-2 border-gray-100 pl-6 group-hover:border-black transition-colors duration-300">
+      <div class="flex items-center space-x-2.5 mb-2">
+        <span class="text-xs font-bold text-gray-400 uppercase tracking-widest">Pluralsight</span>
+      </div>
+      <h3 class="text-2xl font-bold mb-3 group-hover:text-purple-700 transition-colors">
+        {{ course.title }}
+      </h3>
+      <p class="text-gray-500 mb-4 leading-relaxed">
+        {{ course.description }}
+      </p>
+      <div class="text-sm font-bold text-gray-900 uppercase tracking-wide">
+        Watch on Pluralsight &rarr;
+      </div>
+    </div>
+  </a>
+  {%- endfor -%}
+</section>
+
+{%- if collections.course | length %}
+<section class="mb-24">
+  <h2 class="text-sm font-bold text-gray-400 uppercase tracking-widest mb-8">Behind the courses</h2>
   {%- for course in collections.course | reverse -%}
   <a href="{{ course.url }}" class="group block mb-12">
     <div class="border-l-2 border-gray-100 pl-6 group-hover:border-black transition-colors duration-300">
@@ -42,3 +65,4 @@ permalink: /courses/
   </a>
   {%- endfor -%}
 </section>
+{%- endif %}

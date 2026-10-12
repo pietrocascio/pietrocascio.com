@@ -1,0 +1,7 @@
+[
+  {
+    "title": "Java SE Foundations: Collections",
+    "url": "https://www.pluralsight.com/courses/java-se-foundations-collections",
+    "description": "Follow Flux, a fictional package-routing engine, from \"everything breaks\" to \"everything is tracked, ordered, and type-safe.\" The course starts with why arrays aren't enough, then rebuilds the data layer with Lists, Sets, Maps, queues and deques, the ordering guarantees SequencedCollection made explicit in Java SE 21, and immutable collections."
+  }
+]
