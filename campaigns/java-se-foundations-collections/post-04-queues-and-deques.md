@@ -9,7 +9,7 @@
 
 ## Post body
 
-`java.util.Stack` isn't wrong. It's obsolete — and most Java developers still reach for it out of
+java.util.Stack isn't wrong. It's obsolete — and most Java developers still reach for it out of
 habit.
 
 It's synchronized when you don't need synchronization, it extends Vector (a class nobody should be
@@ -20,11 +20,11 @@ Module 4 of my course with @Pluralsight is about processing flow — not just st
 modeling *how* it moves through a system. Flux gives three versions of the same underlying problem:
 
 → A conveyor belt of incoming packages that has to process strictly first-in-first-out — where
-`offer()` and `add()` quietly disagree about what "full" means.
+offer() and add() quietly disagree about what "full" means.
 → Express shipments that need to jump the line entirely — priority over arrival order, not a sorted
 afterthought.
-→ Undo operations at the warehouse — last-in-first-out, the one place `Stack` actually seems to fit,
-and exactly where `Deque` replaces it cleanly.
+→ Undo operations at the warehouse — last-in-first-out, the one place Stack actually seems to fit,
+and exactly where Deque replaces it cleanly.
 
 Three collections, three completely different processing guarantees, and none of them
 interchangeable once you actually need what they promise.

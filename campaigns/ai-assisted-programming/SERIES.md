@@ -44,7 +44,7 @@ Three context posts first (concepts, diagrams, no recorded runs), then purpose-b
 | # | Monday | Working title | Type | Status |
 | :--- | :--- | :--- | :--- | :--- |
 | 1 | 2026-10-12 | Why I'm writing about the engineering of AI agents, not the models | Context: series opener and stance | ✅ Ready |
-| 2 | 2026-10-19 | The model is the smallest part of your coding agent | Context: anatomy of the loop (diagram as LinkedIn image) | 📝 Outlined |
+| 2 | 2026-10-19 | Anatomy of a coding agent: the loop around the model | Context: anatomy of the loop (diagram as LinkedIn image) | ✅ Ready |
 | 3 | 2026-10-26 | What you tell an agent, what you enforce, and what you keep for yourself | Context: instructions vs. enforced controls vs. human judgment | 📝 Outlined |
 | 4 | 2026-11-02 | Your AI coding agent is a feedback loop you have to engineer | First scenario: "rounding conflict" | 💡 Seed |
 
@@ -56,15 +56,28 @@ locked.
 Stance and lens. The industry conversation is about which model is best; most of what engineers
 control is everything around the model. Sets out what the series covers and what it won't, how it
 will be written (constructed scenarios, real runs, honest scale, Java lens), and the question every
-article answers. LinkedIn: `post-01-series-opener.md`. Blog: `src/articles/engineering-ai-agents-not-models.md`.
+article answers. LinkedIn: `engineering-ai-agents-not-models.md`. Blog: `src/articles/engineering-ai-agents-not-models.md`.
 Diagram: `src/images/website/articles/ai-agent-loop.svg` (Excalidraw scene embedded; first source
 `diagrams/agent-loop.excalidraw`).
 
 ### Post 2: anatomy
 
-Model, context, tools, feedback, and stopping conditions as one loop. Argument: most observed agent
-behaviour is set by the harness and the environment, not the model. Introduces the vocabulary later
-posts reuse. A loop diagram replaces the code example.
+Model, context, tools, feedback, boundaries and stopping conditions as one loop. Argument, narrowed
+on 2026-10-17 from "most behaviour is set by the harness" (more than we can show without
+comparative evidence): *the model influences which action the agent chooses; the harness and the
+environment decide which actions are possible, what information is available, how outcomes are
+observed, and when the work stops.* The article says openly that this is narrower than post 1
+promised. Introduces **harness** and **environment** as separate terms (the harness orchestrates;
+the environment is the repo, build, tests, config), which later posts reuse. Illustration is a
+labelled hypothetical (same model, test runnable vs. not), no recorded run. A new diagram, harness
+as the hub between model and environment, replaces the code example.
+LinkedIn: `anatomy-of-a-coding-agent.md`. Blog: `src/articles/anatomy-of-a-coding-agent.md`.
+Diagram: `src/images/website/articles/agent-harness.svg` (Excalidraw scene embedded; source
+`diagrams/agent-harness.excalidraw`).
+
+Seeds it plants for later posts: error output as part of a tool's design (backlog: tool errors),
+passing tests that confirm a wrong assumption (backlog: passing tests), stop reasons that look the
+same from the final message (backlog: definition of failure).
 
 ### Post 3: what you tell, enforce, keep
 

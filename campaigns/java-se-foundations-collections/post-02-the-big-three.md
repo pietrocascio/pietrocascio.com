@@ -1,8 +1,7 @@
 # Post 2 — The Big Three: List, Set, Map (Module 2)
 
-- **Status:** Drafted, ready for review
--
-**Course:** [Java SE Foundations: Collections](http://www.pluralsight.com/courses/java-se-foundations-collections)
+- **Status:** Published on LinkedIn 2026-10-14
+- **Course:** [Java SE Foundations: Collections](http://www.pluralsight.com/courses/java-se-foundations-collections)
 - **Module covered:** 2 — The Big Three - List, Set, Map
 - **Format:** LinkedIn text post, per `resources/Author LinkedIn Social Sharing One-Sheeter.pdf`
 - **Note:** No campaign meta-commentary — pure teaser, per the "post 1 only" rule.
@@ -11,7 +10,7 @@
 
 I added a duplicate package ID to a Set. It let it in anyway.
 
-Not a Java bug. A missing `equals()` and `hashCode()`.
+Not a Java bug. A missing equals() and hashCode().
 
 This is the kind of failure that doesn't show up in code review — the Set looks correct, the types
 check out, the tests probably even pass. It just quietly corrupts data the moment two "equal"

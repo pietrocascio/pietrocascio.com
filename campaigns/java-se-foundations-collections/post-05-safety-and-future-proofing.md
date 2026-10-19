@@ -19,14 +19,14 @@ and unmodifiable just means you can't mutate it through that specific reference.
 was still very mutable, and something else still had a handle on it.
 
 Module 5 of my course with @Pluralsight is about the gap between "looks safe" and "is safe": the
-difference between an unmodifiable view and true immutability, why `List.of()` / `Set.of()` /
-`Map.of()` close that gap for good, and why `Map.of(null, value)` throwing immediately is a feature,
+difference between an unmodifiable view and true immutability, why List.of() / Set.of() /
+Map.of() close that gap for good, and why Map.of(null, value) throwing immediately is a feature,
 not an inconvenience.
 
 Crashing early beats debugging ghosts later.
 
 The course closes out with the other half of "safe by default": adapting a decade-old scanner that
-still returns `Vector` without leaking its legacy behavior into new code, and a short checklist for
+still returns Vector without leaking its legacy behavior into new code, and a short checklist for
 locking in modern defaults going forward — the kind of thing you skim once and then actually use for
 years.
 
