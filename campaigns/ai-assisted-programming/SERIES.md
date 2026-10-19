@@ -36,6 +36,8 @@ Every article answers one question:
 - **Date tool-specific claims.** Agent products change fast; check product behaviour, file
   conventions and protocol details before publishing.
 - Sentence case for titles and headings.
+- **Hashtags:** every LinkedIn post ends with the core set `#SoftwareEngineering #AIAgents
+  #AIAssistedProgramming`, plus 1–2 post-specific tags (e.g. `#Java`, `#SoftwareTesting`), 5 at most.
 
 ## Arc
 

@@ -54,6 +54,8 @@ https://pietrocascio.com/articles/anatomy-of-a-coding-agent/
 Next week: what you can only ask an agent to do, what you can enforce, and what you should keep for
 yourself.
 
+#SoftwareEngineering #AIAgents #AIAssistedProgramming #AgenticAI #Java
+
 ## Notes
 
 - Hook (first two lines): ~130 characters, states the problem before the "See more" fold.

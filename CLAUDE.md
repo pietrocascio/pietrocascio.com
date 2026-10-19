@@ -87,6 +87,7 @@ language: english             # 'english' or 'italian'
 - **Ideal Length:** 1,300–2,000 characters (200–350 words). Absolute maximum: 3,000 characters.
 - **The Hook (First 150–200 characters):** Must immediately state the core technical problem or bold takeaway before the "See more..." fold.
 - **Structure & Formatting:** 1–2 sentence paragraphs, generous white space, front-loaded technical insights/data, ending with a link to the article.
+- **Hashtags:** End every post with 3–5 hashtags on their own line, after the link and closing line. Mix broad (#SoftwareEngineering), topic (#AIAgents) and specific (#Java) tags, in PascalCase. A series keeps a fixed core set so its posts are found together (see the series' `SERIES.md`); add 1–2 post-specific tags on top. Course-promo posts follow the Pluralsight mix instead, including #Pluralsight.
 
 ### Templating
 - Base layout (`src/_includes/base.njk`) is used by all pages.
