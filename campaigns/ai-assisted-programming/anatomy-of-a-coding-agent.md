@@ -1,6 +1,6 @@
 # Post 2: anatomy of a coding agent
 
-- **Status:** Ready
+- **Status:** Published 2026-10-19
 - **Publish:** Monday 2026-10-19, LinkedIn + blog
 - **Article:**
   `src/articles/anatomy-of-a-coding-agent.md` → https://pietrocascio.com/articles/anatomy-of-a-coding-agent/

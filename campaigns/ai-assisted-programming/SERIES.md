@@ -46,7 +46,7 @@ Three context posts first (concepts, diagrams, no recorded runs), then purpose-b
 | # | Monday | Working title | Type | Status |
 | :--- | :--- | :--- | :--- | :--- |
 | 1 | 2026-10-12 | Why I'm writing about the engineering of AI agents, not the models | Context: series opener and stance | ✅ Ready |
-| 2 | 2026-10-19 | Anatomy of a coding agent: the loop around the model | Context: anatomy of the loop (diagram as LinkedIn image) | ✅ Ready |
+| 2 | 2026-10-19 | Anatomy of a coding agent: the loop around the model | Context: anatomy of the loop (diagram as LinkedIn image) | 🚀 Published |
 | 3 | 2026-10-26 | What you tell an agent, what you enforce, and what you keep for yourself | Context: instructions vs. enforced controls vs. human judgment | 📝 Outlined |
 | 4 | 2026-11-02 | Your AI coding agent is a feedback loop you have to engineer | First scenario: "rounding conflict" | 💡 Seed |
 
