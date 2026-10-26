@@ -122,6 +122,15 @@ From the 2026-10-12 ideation session. Each still needs a purpose-built scenario.
 | MCP standardises connection, not the quality of a tool | The protocol leaves tool semantics, permissions, results and recovery as engineering work | Quick insight |
 | Your AI coding agent needs the engineering culture your job ad promised | Faster change generation exposes the cost of weak tests, boundaries, specs and review | Essay |
 | Faster patches do not necessarily mean faster delivery | Measure accepted outcomes and total effort, not patch-generation time | Essay |
+| Mock-heavy tests give an agent a green build it hasn't earned | Tests that verify interactions instead of behaviour pass while real behaviour is broken, and an unconstrained agent tends to write more of them, so the suite stops being a feedback signal | Essay |
+
+The mock-heavy tests row came from a generic IDEAS.md seed, dropped on 2026-10-23 as a standalone
+post because it had no firsthand episode. It fits here only through the scenario: show a real agent
+getting a false green from interaction-verifying tests (Mockito `verify(...)`) and compare with
+state-based tests or an in-memory fake. Background reading: Fowler, *Mocks Aren't Stubs*; Khorikov,
+*Unit Testing: Principles, Practices, and Patterns*. It is distinct from the "passing tests can
+reinforce…" row: that one is about tests written from a misread requirement; this one is about test
+style hiding broken behaviour.
 
 ### Open issues
 
