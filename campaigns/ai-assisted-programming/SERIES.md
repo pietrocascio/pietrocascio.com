@@ -47,7 +47,7 @@ Three context posts first (concepts, diagrams, no recorded runs), then purpose-b
 | :--- | :--- | :--- | :--- | :--- |
 | 1 | 2026-10-12 | Why I'm writing about the engineering of AI agents, not the models | Context: series opener and stance | ✅ Ready |
 | 2 | 2026-10-19 | Anatomy of a coding agent: the loop around the model | Context: anatomy of the loop (diagram as LinkedIn image) | 🚀 Published |
-| 3 | 2026-10-26 | What you tell an agent, what you enforce, and what you keep for yourself | Context: instructions vs. enforced controls vs. human judgment | 📝 Outlined |
+| 3 | 2026-10-27 (Tue) | The wrong rule in the wrong place | Context: instructions vs. enforced controls vs. human judgment (decision diagram as LinkedIn image) | ✏️ Drafting |
 | 4 | 2026-11-02 | Your AI coding agent is a feedback loop you have to engineer | First scenario: "rounding conflict" | 💡 Seed |
 
 Rename the matching "AI-assisted programming post (topic TBD)" Google Calendar slot once a post is
@@ -81,11 +81,56 @@ Seeds it plants for later posts: error output as part of a tool's design (backlo
 passing tests that confirm a wrong assumption (backlog: passing tests), stop reasons that look the
 same from the final message (backlog: definition of failure).
 
-### Post 3: what you tell, enforce, keep
+### Post 3: the wrong rule in the wrong place
 
-Engineering decisions sort into three places: instructions (the agent may not follow them),
-enforced controls (permissions, tests, sandboxes, hooks), and decisions that require a human.
-Turns the series from understanding agents to engineering them.
+Locked in a grilling session on 2026-10-26; moved one day to Tue 2026-10-27 (Wed stays with the
+Collections teaser). Fulfils post 2's promise ("'Don't touch the migrations folder' … is a request.
+A permission rule that blocks writes to it is a control. That difference is next week's subject").
+
+- **Title:** "The wrong rule in the wrong place". Description: "Instructions, enforcement and
+  judgment for coding agents" (sentence case, per CLAUDE.md).
+- **Thesis:** "The mistake isn't writing too few instructions or enforcing too few rules. It's
+  putting the wrong rule in the wrong place." Two claims: a critical rule that needs judgment
+  shouldn't be rigidly automated; a verifiable property whose violation is unacceptable can't rest
+  on instructions alone. Human authority is the implication, not a fourth category.
+- **Unit of analysis:** the property to guarantee, not the risk area. "Every guarantee needs an
+  identifiable owner: a mechanism, or a person when no mechanism can check it reliably. An
+  instruction can't be that owner." Instructions are not "weak": they steer and save wasted loops.
+  Enforcement guarantees within its perimeter. Authority decides what is allowed. Review checks what
+  a machine can't.
+- **Running example:** hypothetical (declared) Spring Boot + Flyway service. Applied migrations
+  must not change (Flyway checksum validation against the database's history + a CI check against a
+  protected baseline of immutable migrations); "don't modify them" in the instruction file (steering);
+  "does this change need a new migration?" (human; new migrations still reviewed before merge).
+- **Over-enforcement:** a deny on the whole `migrations/` folder also blocks the legitimate `V7`.
+  The control isn't wrong because it's rigid; it protects a badly drawn boundary. One sentence on
+  "don't modify existing tests" staying an instruction (it has legitimate exceptions) to set up
+  post 4 without contradicting it.
+- **Diagram (Excalidraw, LinkedIn image):** Requires judgment or authority? → human authority.
+  Else: would a violation be unacceptable? No → instruction. Yes: can a machine reliably check it?
+  Yes → technical enforcement; No → human review. Caption: "The diagram identifies primary
+  responsibility, not every supporting control."
+- **Objection:** "Human approval doesn't scale." Answer: automate what can be verified,
+  pre-authorise what can be safely bounded, reserve human judgment for decisions that need it.
+  Policies set in advance are also human authority.
+- **Box "What this looks like in Claude Code (October 2026)":** CLAUDE.md as instruction ("context,
+  not enforced configuration", memory docs) → `permissions.deny` on
+  `Edit(/src/main/resources/db/migration/**)` as the over-broad boundary (`Write(path)` rules never
+  match; Edit rules cover all built-in file-editing tools) → a PreToolUse hook that blocks edits to
+  existing migrations only. Perimeter note: "A PreToolUse hook scoped to Edit and Write does not
+  cover changes made through Bash"; CI and repository checks still matter. Short JSON only, no full
+  script.
+- **Structure (~1,250 words):** opening (two opposite failures) → three mechanisms, three jobs →
+  properties, not risks ("An instruction is not a guarantee" as a heading) → when enforcement is
+  wrong → where a rule goes (diagram) → objection → Claude Code box → limits and close (+ post 4
+  bridge, series lens question).
+- **LinkedIn:** hook "Writing 'don't touch the migrations' in CLAUDE.md doesn't protect them.
+  Blocking the entire folder does — but it also stops your agent from creating the next migration."
+  One idea: "The problem isn't how many rules you give your coding agent. It's which responsibility
+  you assign to each rule." Diagram attached. Hashtags: core set + `#Java`.
+- **Verify before publishing:** an `Edit(...)` deny really blocks creating a new file (practical
+  test); how `sed -i` is handled; Flyway `validate` behaviour; date and source every Claude Code
+  claim (code.claude.com/docs: memory, permissions, hooks-guide, hooks).
 
 ### Post 4: first scenario, "rounding conflict"
 
