@@ -1,0 +1,29 @@
+---
+layout: base.njk
+pagination:
+  data: topics
+  size: 1
+  alias: topicSlug
+permalink: "/topics/{{ topicSlug }}/"
+eleventyComputed:
+  title: "{{ topics[topicSlug].name }}"
+  description: "{{ topics[topicSlug].description }}"
+---
+
+<header class="mb-16">
+  <a href="/articles/" class="inline-flex items-center text-xs font-bold uppercase tracking-widest text-gray-500 hover:text-black transition-colors mb-6">
+    &larr; All articles
+  </a>
+  <h1 class="text-3xl md:text-4xl font-extrabold tracking-tight text-black mb-4">
+    {{ topics[topicSlug].name }}
+  </h1>
+  <p class="text-xl text-gray-500 max-w-2xl leading-relaxed">
+    {{ topics[topicSlug].description }}
+  </p>
+</header>
+
+<section class="mb-24">
+  {%- for post in collections[topicSlug] | reverse -%}
+  {% include "post-card.njk" %}
+  {%- endfor -%}
+</section>

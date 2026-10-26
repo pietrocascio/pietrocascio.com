@@ -52,9 +52,9 @@ description: I help engineering teams move from "It works on my machine" to "It 
 
   {%- for post in collections.post | reverse -%}
   {%- if loop.index0 < 3 -%}
-  <a href="{{ post.url }}" class="group block mb-8">
+  <div class="group relative mb-8">
     <div class="border-l-2 border-gray-100 pl-6 group-hover:border-black transition-colors duration-300">
-      <div class="flex items-center space-x-2.5 mb-2">
+      <div class="flex flex-wrap items-center gap-2.5 mb-2">
         <span class="text-xs font-bold text-gray-400 uppercase tracking-widest">
           {{ post.date | dateDisplay if post.date else "" }}
         </span>
@@ -64,9 +64,10 @@ description: I help engineering teams move from "It works on my machine" to "It 
           {{ post.data.language }}
         </span>
         {% endif %}
+        {% topicBadges post.data.tags %}
       </div>
       <h3 class="text-xl font-bold mb-2 group-hover:text-purple-700 transition-colors">
-        {{ post.data.title }}
+        <a href="{{ post.url }}" class="after:absolute after:inset-0">{{ post.data.title }}</a>
       </h3>
       <p class="text-gray-500 mb-2">
         {{ post.data.description }}
@@ -75,7 +76,7 @@ description: I help engineering teams move from "It works on my machine" to "It 
         Read post &rarr;
       </div>
     </div>
-  </a>
+  </div>
   {%- endif -%}
   {%- endfor -%}
 

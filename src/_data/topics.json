@@ -1,0 +1,14 @@
+{
+  "ai-agents": {
+    "name": "AI agents",
+    "description": "The engineering around AI coding agents: harnesses, environments, rules and feedback loops."
+  },
+  "code-quality": {
+    "name": "Code quality",
+    "description": "Technical debt, maintainability and the team habits that keep a codebase healthy or let it rot."
+  },
+  "java": {
+    "name": "Java",
+    "description": "Java, Spring Boot and persistence, including lessons learned the hard way in production."
+  }
+}

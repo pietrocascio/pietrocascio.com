@@ -39,8 +39,12 @@ npm run build
 src/
   ├── index.njk              # Home page (lists 3 most recent articles)
   ├── articles.njk           # Articles Archive page (lists all articles)
+  ├── topics.njk             # One page per topic (paginated over _data/topics.json)
+  ├── _data/
+  │   └── topics.json        # Allowed article topics (slug → name, description)
   ├── _includes/
-  │   └── base.njk           # Base layout template (used by all pages)
+  │   ├── base.njk           # Base layout template (used by all pages)
+  │   └── post-card.njk      # Article card used by the archive and topic pages
   ├── articles/              # Article markdown files
   │   └── *.md               # Articles with front matter metadata
   ├── css/
@@ -63,7 +67,7 @@ Articles are Markdown files in `src/articles/` with YAML front matter:
 layout: post.njk              # Must use post.njk
 title: Article title in sentence case
 description: Short description in sentence case (used in meta tags)
-tags: post                    # MUST be 'post' for articles to appear
+tags: [post, ai-agents]       # MUST include 'post'; add exactly one topic slug
 date: YYYY-MM-DD              # Publication date
 language: english             # 'english' or 'italian'
 ---
@@ -74,6 +78,9 @@ language: english             # 'english' or 'italian'
 **Important:**
 - **Casing Rule:** Always use **sentence case** for titles, headings, and front matter descriptions (never title case).
 - Only articles tagged with `tags: post` are included in the `collections.post` collection.
+- **Topics:** every article also carries one topic slug in `tags`. The allowed topics live in `src/_data/topics.json` (currently `ai-agents`, `code-quality`, `java`). Don't invent new slugs per article; add a topic to `topics.json` only when it will hold 2–3+ articles. Topics are subjects, not formats (a course-promo post about Java is tagged `java`).
+- Each topic gets a page at `/topics/<slug>/` (`src/topics.njk`); the archive page lists all topics with counts.
+- Article headers render topic links with `{% topicBadges tags %}` after the language badge. Article Markdown is pre-processed with **Liquid**, so use shortcodes there, not Nunjucks `set`/`include`.
 - The **Home Page** (`index.njk`) displays only the **3 most recent posts**.
 - The **Articles Page** (`articles.njk`) displays the **full archive**.
 - The `base.njk` layout renders the article with Tailwind's prose classes.
@@ -135,6 +142,8 @@ To deploy: push to `master` branch. GitHub Actions handles the rest.
 - **Collections:** Articles are automatically collected with tag `post`
 - **Custom Filters:** 
   - `dateDisplay`: Formats Date objects to "Month Day, Year" (e.g., January 1, 2026).
+- **Shortcodes:**
+  - `topicBadges`: Renders a link badge for each tag that is a known topic.
 
 ## GitHub Actions Secrets
 

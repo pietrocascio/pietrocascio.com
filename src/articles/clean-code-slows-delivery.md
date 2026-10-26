@@ -2,7 +2,7 @@
 layout: post.njk
 title: Clean code and the cost of change
 description: The real trade-off in software delivery is not quality versus velocity, but the cost of improving structure now versus working with it later.
-tags: post
+tags: [post, code-quality]
 date: 2026-01-20
 language: english
 linkedin_url: "https://www.linkedin.com/feed/update/urn:li:activity:7419340309161050112/"
@@ -18,6 +18,7 @@ linkedin_url: "https://www.linkedin.com/feed/update/urn:li:activity:741934030916
         <span class="inline-flex items-center px-2 py-0.5 rounded text-xs font-semibold uppercase tracking-wider {% if language == 'italian' %}bg-emerald-50 text-emerald-700 border border-emerald-100{% else %}bg-purple-50 text-purple-700 border border-purple-100{% endif %}">
             {{ language }}
         </span>
+        {% topicBadges tags %}
     </div>
 </header>
 

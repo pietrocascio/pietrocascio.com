@@ -2,7 +2,7 @@
 layout: post.njk
 title: "Why I'm writing about the engineering of AI agents, not the models"
 description: "Most of the AI coding conversation is about which model is best. Most of what engineers control is everything around the model. An introduction to a series about that part."
-tags: post
+tags: [post, ai-agents]
 date: 2026-10-12
 language: english
 ---
@@ -17,6 +17,7 @@ language: english
         <span class="inline-flex items-center px-2 py-0.5 rounded text-xs font-semibold uppercase tracking-wider {% if language == 'italian' %}bg-emerald-50 text-emerald-700 border border-emerald-100{% else %}bg-purple-50 text-purple-700 border border-purple-100{% endif %}">
             {{ language }}
         </span>
+        {% topicBadges tags %}
     </div>
 </header>
 

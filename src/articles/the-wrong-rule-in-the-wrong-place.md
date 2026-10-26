@@ -2,7 +2,7 @@
 layout: post.njk
 title: "The wrong rule in the wrong place"
 description: "Instructions, enforcement and judgment for coding agents: why each rule needs a place that can actually hold it."
-tags: post
+tags: [post, ai-agents]
 date: 2026-10-27
 language: english
 ---
@@ -17,6 +17,7 @@ language: english
         <span class="inline-flex items-center px-2 py-0.5 rounded text-xs font-semibold uppercase tracking-wider {% if language == 'italian' %}bg-emerald-50 text-emerald-700 border border-emerald-100{% else %}bg-purple-50 text-purple-700 border border-purple-100{% endif %}">
             {{ language }}
         </span>
+        {% topicBadges tags %}
     </div>
 </header>
 
