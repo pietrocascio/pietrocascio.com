@@ -169,8 +169,8 @@ run.
 Cost of failure, verifiability and authority are criteria, not a formula. Teams will disagree on
 what counts as unacceptable, and a check that's reliable in one codebase is flaky in another.
 
-What the criteria give you is a better question than "how do I make the agent obey?". Next week's
-scenario uses an instruction on purpose: "don't modify existing tests". It stays an instruction
+What the criteria give you is a better question than "how do I make the agent obey?". The first
+recorded scenario in this series will use an instruction on purpose: "don't modify existing tests". It stays an instruction
 because a test can be genuinely wrong, and deciding when it is takes judgment. An instruction can be
 the right choice precisely because a rule has legitimate exceptions. It just shouldn't be mistaken
 for a guarantee.
