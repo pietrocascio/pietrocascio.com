@@ -72,8 +72,8 @@ In the Flyway service, the risk area breaks down like this:
 | The agent doesn't try to edit them | Instruction in the project file | Steering, fewer wasted loops |
 | A change needs a new migration, and that's acceptable | A person | Authority |
 
-The first row hides a detail worth knowing. Flyway already records a checksum for every migration
-it applies, and by default it validates them before migrating. Edit an applied file and the next
+The first row hides a detail worth knowing. Flyway already records a checksum for every SQL
+migration it applies, and by default it validates them before migrating. Edit an applied file and the next
 `migrate` against that database fails. But it only checks against databases that have run the
 migration. A fresh local database won't complain. That's why the CI check matters, and why it needs
 a trustworthy reference: a protected baseline of which migrations count as immutable, not just
@@ -160,7 +160,9 @@ the target path before the call runs. A short script blocks the call if the file
 migrations folder *and already exists*. New migrations go through; existing ones don't.
 
 **The perimeter.** A `PreToolUse` hook scoped to Edit and Write does not cover changes made through
-Bash. You can add one for Bash, but parsing shell commands is best-effort. That's why the Flyway
+Bash. You can add one for Bash, but parsing shell commands is best-effort. The deny rule reaches
+further: in my test it also blocked `sed -i` and a `>>` redirect on a migration. A Python one-liner
+that opened the file itself still got through. That's why the Flyway
 validation and the CI check stay: they own the guarantee; the hook just stops the agent wasting a
 run.
 

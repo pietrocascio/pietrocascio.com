@@ -128,9 +128,13 @@ A permission rule that blocks writes to it is a control. That difference is next
   Blocking the entire folder does — but it also stops your agent from creating the next migration."
   One idea: "The problem isn't how many rules you give your coding agent. It's which responsibility
   you assign to each rule." Diagram attached. Hashtags: core set + `#Java`.
-- **Verify before publishing:** an `Edit(...)` deny really blocks creating a new file (practical
-  test); how `sed -i` is handled; Flyway `validate` behaviour; date and source every Claude Code
-  claim (code.claude.com/docs: memory, permissions, hooks-guide, hooks).
+- **Verified 2026-10-26** (Claude Code 2.1.310, scratch project with
+  `deny: ["Edit(/db/migration/**)"]`): the deny blocked creating a new file with Write ("File is in a
+  directory that is denied by your permission settings"); `sed -i` and `echo >>` on a migration were
+  denied even with `Bash(sed:*)`/`Bash(echo:*)` allowed; a `python -c` one-liner writing the file got
+  through. Flyway docs: `validateOnMigrate` defaults to true; checksums of applied SQL migrations live
+  in `flyway_schema_history`; Java migrations have no checksum unless they implement `getChecksum()`.
+  Claude Code sources: code.claude.com/docs (memory, permissions, hooks-guide, hooks).
 
 ### Post 4: first scenario, "rounding conflict"
 
