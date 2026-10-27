@@ -2,7 +2,7 @@
 layout: post.njk
 title: "The wrong rule in the wrong place"
 description: "Instructions, enforcement and judgment for coding agents: why each rule needs a place that can actually hold it."
-tags: [post, ai-agents]
+tags: [ post, ai-agents ]
 date: 2026-10-27
 language: english
 ---
@@ -38,43 +38,44 @@ configured an agent. [Last week](/articles/anatomy-of-a-coding-agent/) I said th
 migrations folder" in an instruction file is a request, while a permission rule that blocks the
 write is a control. This week is about what follows from that. My argument:
 
-> The mistake isn't writing too few instructions or enforcing too few rules. It's putting the wrong
-> rule in the wrong place.
+> The mistake is putting the wrong rule in the wrong place, and more instructions or more
+> enforcement won't fix it.
 
 ## Three mechanisms, three different jobs
 
 It's tempting to rank the options: instructions are weak, enforcement is strong, a human is the
 final word. That ranking is what produced both failures above. The mechanisms don't sit on one
-scale. They do different jobs.
+scale, because each does a different job.
 
-**An instruction steers.** It tells the agent what you expect, so it tries the right thing first
-and wastes fewer turns finding out what you'd reject. That's real value. An agent that knows the
-migrations are off-limits will usually go and write a new one, which is what you wanted.
+An instruction steers. It tells the agent what you expect, so it tries the right thing first and
+wastes fewer turns finding out what you'd reject. An agent that knows the migrations are
+off-limits will usually go and write a new one, which is what you wanted.
 
-**Enforcement guarantees, within its perimeter.** A permission rule, a hook or a CI check holds
+Enforcement guarantees, within its perimeter. A permission rule, a hook or a CI check holds
 whether or not the model was paying attention. But it only covers the operations it intercepts and
 the conditions it can check.
 
-**A human decides.** Some questions aren't checks at all. Whether a schema change is acceptable, or
+A human decides. Some questions aren't checks at all. Whether a schema change is acceptable, or
 whether a destructive migration is worth the risk, needs someone with the context and the
 authority to say yes.
 
 ## An instruction is not a guarantee
 
-The two teams both thought about the *risk*: migrations getting damaged. That's too coarse to
-place a rule. What you can place is a specific **property** you want to hold, and each one needs an
-identifiable owner.
+The two teams both thought about the risk: migrations getting damaged. That's too coarse to place
+a rule on. What you can place a rule on is a specific property you want to hold, and each property
+needs an identifiable owner.
 
 In the Flyway service, the risk area breaks down like this:
 
-| Property or decision | Owner | Role |
-| :--- | :--- | :--- |
-| Applied migrations don't change | Flyway's validation, plus a CI check | Guarantee, within what they check |
-| The agent doesn't try to edit them | Instruction in the project file | Steering, fewer wasted loops |
-| A change needs a new migration, and that's acceptable | A person | Authority |
+| Property or decision                                  | Owner                                | Role                              |
+|:------------------------------------------------------|:-------------------------------------|:----------------------------------|
+| Applied migrations don't change                       | Flyway's validation, plus a CI check | Guarantee, within what they check |
+| The agent doesn't try to edit them                    | Instruction in the project file      | Steering, fewer wasted loops      |
+| A change needs a new migration, and that's acceptable | A person                             | Authority                         |
 
-The first row hides a detail worth knowing. Flyway already records a checksum for every SQL
-migration it applies, and by default it validates them before migrating. Edit an applied file and the next
+The first row depends on how Flyway validates. It already records a checksum for every SQL
+migration it applies, and by default it validates them before migrating. Edit an applied file and
+the next
 `migrate` against that database fails. But it only checks against databases that have run the
 migration. A fresh local database won't complain. That's why the CI check matters, and why it needs
 a trustworthy reference: a protected baseline of which migrations count as immutable, not just
@@ -86,26 +87,25 @@ So the rule is:
 > it reliably. An instruction can't be that owner.
 
 Several layers can support the same property. That's ordinary defence in depth. The mistake is
-asking one of them to carry a responsibility it can't hold. The first team asked an instruction to
-be a guarantee.
+asking one of them to carry a responsibility it can't hold, as the first team did when it asked an
+instruction to be a guarantee.
 
 ## When enforcement is the wrong answer
 
-The second team made the opposite mistake, and it's the one people are less willing to hear: more
-enforcement isn't automatically better.
+The second team made the opposite mistake, and it's harder to accept if you assume more
+enforcement is always safer.
 
-Their deny rule wasn't wrong because it was strict. It was wrong because it protected a badly drawn
-boundary. "Nothing in this folder may be written" isn't the property they cared about. "Files that
-have been applied may not change" is. The first boundary is easy to express and blocks legitimate
-work. The second is the actual requirement.
+Strictness wasn't the problem with their deny rule. The boundary it protected was. The team cared
+about "files that have been applied may not change", and the rule enforced "nothing in this folder
+may be written". The folder rule is easy to express and blocks legitimate work. The applied-files
+rule is the actual requirement.
 
 A rigid control on the wrong boundary has a cost the first team never paid: it blocks correct work,
 and an agent that still has a task to finish may look for another route to it, such as the shell.
-You've replaced a rule it might ignore with a wall it might walk around.
 
 ## Deciding where a rule goes
 
-Here is the decision as I'd draw it. Three questions, in this order:
+Here is the decision as I'd draw it, as three questions in this order:
 
 <img src="/images/website/articles/rule-placement.svg" alt="Decision flow for placing a rule for a coding agent. First question: does it require human judgment or authority? If yes, human authority. If no: would a violation be unacceptable? If no, an instruction. If yes: can a machine reliably check it? If yes, technical enforcement. If no, human review.">
 
@@ -113,10 +113,9 @@ Authority comes first on purpose. Some things a machine can check still need a p
 decision: approving a destructive migration is verifiable in the narrow sense and still not
 something to delegate.
 
-The last branch matters as much as the first. When a violation would be unacceptable but no
-machine can check it reliably, the answer isn't an instruction with stronger wording. It's a
-person **reviewing** the result. Authority and review are different jobs: one decides what's
-allowed, the other checks what a machine can't.
+When a violation would be unacceptable but no machine can check it reliably, stronger wording in
+the instruction won't help. A person has to review the result. Authority and review are different
+jobs: one decides what's allowed, the other checks what a machine can't.
 
 The diagram identifies primary responsibility, not every supporting control. A human decision can
 still be backed by a check that blocks execution until approval exists.
@@ -127,7 +126,7 @@ The strongest objection lands on that human column. Put an approval prompt in fr
 action, and by the twentieth one you're clicking yes without reading. Approval fatigue turns
 oversight into a ritual.
 
-That's true, and it's an argument for this approach, not against it. If every action needs a human,
+That's true, and it supports this approach. If every action needs a human,
 the boundary is in the wrong place. Automate what can be verified. Pre-authorise what can be safely
 bounded, like creating new migration files or running the test suite. Keep human judgment for the
 decisions that actually need it, presented with enough context to judge.
@@ -148,7 +147,9 @@ them as context, not enforced configuration".
 ```json
 {
   "permissions": {
-    "deny": ["Edit(/src/main/resources/db/migration/**)"]
+    "deny": [
+      "Edit(/src/main/resources/db/migration/**)"
+    ]
   }
 }
 ```
@@ -156,7 +157,7 @@ them as context, not enforced configuration".
 `Edit` rules apply to every built-in tool that edits files, including creating them, so this also
 blocks the new `V7`. (A separate `Write(...)` rule isn't needed, and isn't matched.)
 
-**A narrower boundary.** Instead of the deny rule, a `PreToolUse` hook matching `Edit|Write` receives
+**A narrower boundary.** Instead of the deny rule, a `PreToolUse` hook matching `Edit|Write`receives
 the target path before the call runs. A short script blocks the call if the file is under the
 migrations folder *and already exists*. New migrations go through; existing ones don't.
 
@@ -169,11 +170,13 @@ run.
 
 ## The limit of this argument
 
-Cost of failure, verifiability and authority are criteria, not a formula. Teams will disagree on
+Cost of failure, verifiability and authority are criteria you still have to apply with judgment.
+Teams will disagree on
 what counts as unacceptable, and a check that's reliable in one codebase is flaky in another.
 
 What the criteria give you is a better question than "how do I make the agent obey?". The first
-recorded scenario in this series will use an instruction on purpose: "don't modify existing tests". It stays an instruction
+recorded scenario in this series will use an instruction on purpose: "don't modify existing tests".
+It stays an instruction
 because a test can be genuinely wrong, and deciding when it is takes judgment. An instruction can be
 the right choice precisely because a rule has legitimate exceptions. It just shouldn't be mistaken
 for a guarantee.
