@@ -2,7 +2,7 @@
 layout: post.njk
 title: "The broken window effect in software teams: why bad code is contagious"
 description: "How rotten codebases and diffuse ownership act as an unsupervised mentor, training developers to mimic anti-patterns and spreading technical debt."
-tags: post
+tags: [post, code-quality]
 date: 2026-08-22
 language: english
 ---
@@ -17,6 +17,7 @@ language: english
         <span class="inline-flex items-center px-2 py-0.5 rounded text-xs font-semibold uppercase tracking-wider {% if language == 'italian' %}bg-emerald-50 text-emerald-700 border border-emerald-100{% else %}bg-purple-50 text-purple-700 border border-purple-100{% endif %}">
             {{ language }}
         </span>
+        {% topicBadges tags %}
     </div>
 </header>
 

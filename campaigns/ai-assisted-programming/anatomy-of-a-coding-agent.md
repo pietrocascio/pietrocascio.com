@@ -1,6 +1,6 @@
 # Post 2: anatomy of a coding agent
 
-- **Status:** Ready
+- **Status:** Published 2026-10-19
 - **Publish:** Monday 2026-10-19, LinkedIn + blog
 - **Article:**
   `src/articles/anatomy-of-a-coding-agent.md` → https://pietrocascio.com/articles/anatomy-of-a-coding-agent/
@@ -53,6 +53,8 @@ https://pietrocascio.com/articles/anatomy-of-a-coding-agent/
 
 Next week: what you can only ask an agent to do, what you can enforce, and what you should keep for
 yourself.
+
+#SoftwareEngineering #AIAgents #AIAssistedProgramming #AgenticAI #Java
 
 ## Notes
 

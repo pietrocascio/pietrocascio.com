@@ -2,7 +2,7 @@
 layout: post.njk
 title: Why I regret using Hibernate's EAGER fetching
 description: A production post-mortem on the "N+1 problem" that crippled our ride-booking engine during rush hour.
-tags: post
+tags: [post, java]
 date: 2026-01-11
 language: english
 linkedin_url: "https://www.linkedin.com/posts/pietrocascio_java-springboot-softwarearchitecture-activity-7416428070867288064-SaU8?utm_source=share&utm_medium=member_desktop&rcm=ACoAAASw7M8BkQrh780Iah0oN8WL-jrJDWofFzw"
@@ -18,6 +18,7 @@ linkedin_url: "https://www.linkedin.com/posts/pietrocascio_java-springboot-softw
         <span class="inline-flex items-center px-2 py-0.5 rounded text-xs font-semibold uppercase tracking-wider {% if language == 'italian' %}bg-emerald-50 text-emerald-700 border border-emerald-100{% else %}bg-purple-50 text-purple-700 border border-purple-100{% endif %}">
             {{ language }}
         </span>
+        {% topicBadges tags %}
     </div>
 </header>
 

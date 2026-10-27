@@ -46,6 +46,8 @@ First article, on why I'm taking this angle: https://pietrocascio.com/articles/e
 
 Next week: why the model is the smallest part of your coding agent.
 
+#SoftwareEngineering #AIAgents #AIAssistedProgramming #Java
+
 ## Notes
 
 - Hook (first two lines): ~150 characters, states the problem before the "See more" fold.

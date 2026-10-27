@@ -2,7 +2,7 @@
 layout: post.njk
 title: How a six-month-old system becomes legacy code
 description: How brand-new systems quietly become difficult to maintain, and what senior engineers can do to change the trajectory.
-tags: post
+tags: [post, code-quality]
 date: 2026-01-15
 language: english
 linkedin_url: "https://www.linkedin.com/posts/pietrocascio_softwarearchitecture-technicaldebt-cleancode-activity-7417475717489152000-52OO?utm_source=share&utm_medium=member_desktop&rcm=ACoAAASw7M8BkQrh780Iah0oN8WL-jrJDWofFzw"
@@ -18,6 +18,7 @@ linkedin_url: "https://www.linkedin.com/posts/pietrocascio_softwarearchitecture-
         <span class="inline-flex items-center px-2 py-0.5 rounded text-xs font-semibold uppercase tracking-wider {% if language == 'italian' %}bg-emerald-50 text-emerald-700 border border-emerald-100{% else %}bg-purple-50 text-purple-700 border border-purple-100{% endif %}">
             {{ language }}
         </span>
+        {% topicBadges tags %}
     </div>
 </header>
 

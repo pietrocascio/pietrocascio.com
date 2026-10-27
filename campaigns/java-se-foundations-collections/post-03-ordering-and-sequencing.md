@@ -1,15 +1,14 @@
 # Post 3 — Ordering and Sequencing (Module 3)
 
-- **Status:** Drafted, ready for review
--
-**Course:** [Java SE Foundations: Collections](http://www.pluralsight.com/courses/java-se-foundations-collections)
+- **Status:** Published on LinkedIn 2026-10-21
+- **Course:** [Java SE Foundations: Collections](http://www.pluralsight.com/courses/java-se-foundations-collections)
 - **Module covered:** 3 — Ordering and Sequencing
 - **Format:** LinkedIn text post, per `resources/Author LinkedIn Social Sharing One-Sheeter.pdf`
 - **Note:** No campaign meta-commentary — pure teaser, per the "post 1 only" rule.
 
 ## Post body
 
-I've watched the same HashSet print its contents in a different order on two runs. Same code, same
+I've watched the same Set print its contents in a different order on two runs. Same code, same
 data, different output.
 
 That's not a bug in the JVM. It's a bug in the assumption that a Set has an order to begin with.

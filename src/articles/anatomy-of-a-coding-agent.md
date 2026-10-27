@@ -2,7 +2,7 @@
 layout: post.njk
 title: "Anatomy of a coding agent: the loop around the model"
 description: "The model chooses what an agent does next. The harness and the environment decide what it can see, what it can do, how it learns it was wrong, and when it stops."
-tags: post
+tags: [post, ai-agents]
 date: 2026-10-19
 language: english
 ---
@@ -17,6 +17,7 @@ language: english
         <span class="inline-flex items-center px-2 py-0.5 rounded text-xs font-semibold uppercase tracking-wider {% if language == 'italian' %}bg-emerald-50 text-emerald-700 border border-emerald-100{% else %}bg-purple-50 text-purple-700 border border-purple-100{% endif %}">
             {{ language }}
         </span>
+        {% topicBadges tags %}
     </div>
 </header>
 
