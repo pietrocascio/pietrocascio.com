@@ -1,6 +1,6 @@
 # Post 4 — Processing Queues and Deques (Module 4)
 
-- **Status:** Reviewed, ready to publish 2026-10-28
+- **Status:** Published on LinkedIn 2026-10-28
 - **Course:** [Java SE Foundations: Collections](http://www.pluralsight.com/courses/java-se-foundations-collections)
 - **Module covered:** 4 — Processing Queues and Deques
 - **Format:** LinkedIn text post, per `resources/Author LinkedIn Social Sharing One-Sheeter.pdf`
@@ -8,7 +8,7 @@
 
 ## Post body
 
-java.util.Stack is obsolete, and most Java developers still reach for it out of habit.
+java.util.Stack is obsolete, and some Java developers still reach for it out of habit.
 
 It's synchronized when you don't need synchronization, it extends Vector (a class nobody should be
 extending in 2026), and the JDK's own Javadoc has told you to use Deque instead since Java 6. It
