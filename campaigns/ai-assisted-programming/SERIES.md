@@ -48,7 +48,7 @@ Three context posts first (concepts, diagrams, no recorded runs), then purpose-b
 | 1 | 2026-10-12 | Why I'm writing about the engineering of AI agents, not the models | Context: series opener and stance | ✅ Ready |
 | 2 | 2026-10-19 | Anatomy of a coding agent: the loop around the model | Context: anatomy of the loop (diagram as LinkedIn image) | 🚀 Published |
 | 3 | 2026-10-27 (Tue) | The wrong rule in the wrong place | Context: instructions vs. enforced controls vs. human judgment (decision diagram as LinkedIn image) | ✏️ Drafting |
-| 4 | 2026-11-02 | Your AI coding agent is a feedback loop you have to engineer | First scenario: "rounding conflict" | 💡 Seed |
+| 4 | 2026-11-02 | Your AI coding agent is a feedback loop you have to engineer | First scenario: "rounding conflict" | 🧪 Scenario built, runs pending |
 
 Rename the matching "AI-assisted programming post (topic TBD)" Google Calendar slot once a post is
 locked.
@@ -150,6 +150,30 @@ Thesis: a loop can stay active without making progress; engineers must design ho
 observable. Scenario repo to live outside this repo (proposed:
 `C:\dev\consulbit\internal-projects\agent-scenarios\rounding-conflict`). Piero runs it himself in a
 fresh Claude Code session; the JSONL transcript under `~/.claude/projects/` is the raw trace.
+
+**Redesigned 2026-10-30** (the seed above is superseded). With both rules under test, a current agent
+would likely split the helper in one pass, the correct fix, so neither run would show anything.
+Now:
+
+- **Trap:** the tax report has **no tests**. Its half-even rule lives only in
+  `docs/spec/tax-reporting.md`, a comment in `TaxReport` and the TAX-37 commit message (which
+  switched the shared `Money.round()` to `HALF_EVEN`). The obvious fix (helper back to `HALF_UP`)
+  turns `mvn test` green and silently changes the tax report. Verified: obvious fix → visible suite
+  3/3 green, hidden check 2 of 3 failing.
+- **Thesis:** a green build isn't progress; you have to design how progress becomes observable.
+- **Rule fixed before running:** publish whatever happens. If the agent catches the tax caller
+  under the loose prompt, the post says so and becomes about which signal it used.
+- **Runs:** 2 per condition (loose, engineered), same model and Claude Code version. Prompts,
+  procedure and results log: `agent-scenarios/_eval/rounding-conflict/RUNBOOK.md`. The hidden check
+  (`TaxReportEvalTest.java`, `evaluate.sh`) lives outside the scenario repo. Run clones in
+  `agent-scenarios/runs/`.
+- **Engineered prompt** changes only the instructions (find every caller of shared code and check
+  its spec; don't modify existing tests; done = green build plus evidence per caller; stop on a
+  genuine conflict; finish with a report). No hint about the tax report.
+- **Scenario repo:** local git repo, 3 commits (invoicing → TAX-37 → failing BUG-142 test). Publish
+  on GitHub after the post.
+- **Date:** Monday 2026-11-02, Tuesday fallback; Nov 9 if the runs need a rethink.
+- The tax rule is a fictional spec written for the scenario; the article must say so.
 
 ## Backlog
 
