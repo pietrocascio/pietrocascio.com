@@ -15,6 +15,7 @@ A persistent storage and backlog for technical article concepts, production epis
 | ✍️ Drafting | *Why I'm writing about the engineering of AI agents, not the models* (AI series #1, see [campaigns/ai-assisted-programming/SERIES.md](campaigns/ai-assisted-programming/SERIES.md)) | Standard Essay (1,000–1,500w) | 2026-10-12 |
 | 📝 Outlined | *The model is the smallest part of your coding agent* (AI series #2) | Standard Essay (1,000–1,500w) | 2026-10-12 |
 | 📝 Outlined | *What you tell an agent, what you enforce, and what you keep for yourself* (AI series #3) | Standard Essay (1,000–1,500w) | 2026-10-12 |
+| 📝 Outlined | *Legacy code is what success leaves behind* (legacy series "Afraid to change" #1, see [campaigns/legacy-code/SERIES.md](campaigns/legacy-code/SERIES.md)) | Standard Essay (1,000–1,500w) | 2026-10-30 |
 
 ---
 
