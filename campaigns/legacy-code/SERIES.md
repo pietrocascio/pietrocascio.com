@@ -91,11 +91,49 @@ scheduled.
   given. Having fought and lost the same battle before, he didn't spend more energy on it, left
   shortly after, and expected the module to be worse two years later. Sympathy for the next
   developers.
+- **Age and scale unknown:** Piero doesn't know how old the engine was or what volume it handled.
+  Keep it vague ("years old", "the code that calculated what customers paid"); never invent figures.
 - **Turn:** the module wasn't neglected by bad engineers; it was a success that the business came to
   depend on, and the fear itself produced it. Every copy-paste was the rational choice.
+- **Edit and Pray irony (Feathers):** the business demanded absolute safety because money was
+  involved, but by refusing time for tests it forced the least safe way of working, *Edit and Pray*
+  instead of *Cover and Modify*. The fear produced the danger it wanted to avoid. One Feathers
+  reference anchors this; don't stack more frameworks on top.
+- **Empathy line:** whoever wrote the engine worked under deadlines and constraints nobody remembers.
+  One sentence, in line with "blame the system".
+- **Not in the opener:** the remedy (characterisation tests, sprout methods) is post 3; the
+  value-and-risk argument is post 2. The opener diagnoses and promises the series will get there.
 - **Close:** the definition, "code the team is afraid to change", and what the series will cover.
 - **Ending tone:** honest that there was no fix; keep one human line about lost battles; land on
   the system, not on people.
 - **Diagram (LinkedIn image):** a loop. Fear of the module → copy-paste instead of change → module
   grows bigger and more opaque → more fear. Echoes the AI series loop diagram, as the start of a
   shared visual language.
+
+### Post 2: "No time to refactor"
+
+- **Vocabulary gap:** engineers ask for time to clean up code and pay down debt; the business hears
+  cost and risk with no new features. To a manager, refactoring a working billing system looks like
+  taking all the risk for zero visible value. Argue that refactoring has to be pitched as risk
+  management and defect prevention. Sources on this: Bernstein (*Beyond Legacy Code*), Birchall
+  (*Re-Engineering Legacy Software*). Verify any attribution before citing.
+- **Tone:** don't frame Piero's lost battles as failing to speak the right language, and don't make
+  the business the villain.
+
+### Post 3: what I would have done with the billing engine
+
+- **The legacy code dilemma (Feathers):** to change code safely you need tests, but to add tests you
+  have to change code. Explains why the plan starts with characterisation tests.
+- **The plan:** characterisation tests that pin down current behaviour; sprout methods/classes so
+  the legal change lands in new, tested code; build small islands of tested code around change
+  points instead of asking for one big refactoring window. Map the coupling to other modules first.
+
+### Notes from external research (NotebookLM, 2026-10-30)
+
+A NotebookLM notebook fed with legacy code books (Feathers, Bernstein and others) reviewed post 1.
+Kept: Edit and Pray irony, copy-paste as survival, empathy line (post 1); value and risk (post 2);
+dilemma, characterisation tests, sprout methods (post 3). Rejected: a hook with invented figures
+("10-year-old", "millions in transactions"); "burnout and departure" framing (Piero never said
+burnout); stacking five authors in one post; the "Lava Flow" label for copy-paste (in *AntiPatterns*
+it means dead, frozen code, a loose fit); its suggested structure, which drops the
+"what success leaves behind" thesis and ends on advice.
