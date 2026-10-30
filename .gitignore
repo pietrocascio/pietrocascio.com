@@ -84,5 +84,6 @@ _site/
 # Agent skills (installed via `npx skills add mattpocock/skills -a claude-code`; skills-lock.json is kept)
 .claude/skills/
 .agents/skills/
+agent/skills/
 # Private reference material (e.g. Pluralsight author documents), never committed
 resources/

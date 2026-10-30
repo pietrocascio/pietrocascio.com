@@ -7,6 +7,12 @@
       "skillPath": "skills/engineering/ask-matt/SKILL.md",
       "computedHash": "e5404aef8525ca0c8fc76692567a38dfdd5d0cc1a9f8d47c02c18f29f60d92a6"
     },
+    "chrome-extension": {
+      "source": "samber/cc-skills",
+      "sourceType": "github",
+      "skillPath": "skills/chrome-extension/SKILL.md",
+      "computedHash": "333e920b7bdf4162554a5cad24c7c96aab0b1722137b367e7351e3e0f8200691"
+    },
     "claude-handoff": {
       "source": "mattpocock/skills",
       "sourceType": "github",
@@ -25,6 +31,48 @@
       "skillPath": "skills/engineering/codebase-design/SKILL.md",
       "computedHash": "caea3cb8a8281ff829fd1a2b985044e77601b62f301adf43f689ccfc74c15f6f"
     },
+    "conventional-git": {
+      "source": "samber/cc-skills",
+      "sourceType": "github",
+      "skillPath": "skills/conventional-git/SKILL.md",
+      "computedHash": "6d10d4ba981fdd4772cef07adcdaf1153dbd4afbac6407f380db782e9dde891d"
+    },
+    "copywriting-cta": {
+      "source": "samber/cc-skills",
+      "sourceType": "github",
+      "skillPath": "skills/copywriting-cta/SKILL.md",
+      "computedHash": "91701851807e6b6685a44c197246a384c34f731ab6fd6018273ea553577391d5"
+    },
+    "copywriting-hooks": {
+      "source": "samber/cc-skills",
+      "sourceType": "github",
+      "skillPath": "skills/copywriting-hooks/SKILL.md",
+      "computedHash": "a3cf4c361c79947e78fa10fad981dca8e26995db0c41fc1e0601f099bc7cc7a9"
+    },
+    "copywriting-prose-creator": {
+      "source": "samber/cc-skills",
+      "sourceType": "github",
+      "skillPath": "skills/copywriting-prose-creator/SKILL.md",
+      "computedHash": "62d70e6d969838530f81b58cde4282c20aedcb9d9029bcd67d6134350a2466cf"
+    },
+    "copywriting-tone-of-voice-creator": {
+      "source": "samber/cc-skills",
+      "sourceType": "github",
+      "skillPath": "skills/copywriting-tone-of-voice-creator/SKILL.md",
+      "computedHash": "de63100d5087c53023b611e4bd52cdfd3f9b9de1fb0082304eb2aada943cf8f9"
+    },
+    "crxjs": {
+      "source": "samber/cc-skills",
+      "sourceType": "github",
+      "skillPath": "skills/crxjs/SKILL.md",
+      "computedHash": "8275cf6fd3225fd1a25883e9d71cb80bb2445beae27485ec2eaf4634952e0075"
+    },
+    "deep-research": {
+      "source": "samber/cc-skills",
+      "sourceType": "github",
+      "skillPath": "skills/deep-research/SKILL.md",
+      "computedHash": "1d39d87fefd6747fec86f84be55fdb3f27e5333c6ff0c57ba56cabf05db31d1d"
+    },
     "diagnosing-bugs": {
       "source": "mattpocock/skills",
       "sourceType": "github",
@@ -36,6 +84,12 @@
       "sourceType": "github",
       "skillPath": "skills/engineering/domain-modeling/SKILL.md",
       "computedHash": "336547f3ff285e822fc70b69b170dc58bceef9c8ed5fad18de0046287d6be837"
+    },
+    "frontend-design-deslop": {
+      "source": "samber/cc-skills",
+      "sourceType": "github",
+      "skillPath": "skills/frontend-design-deslop/SKILL.md",
+      "computedHash": "95320335ba5f82eec350801617df877d57f6d582e7b6eec8c5edf98407ad7bfd"
     },
     "git-guardrails-claude-code": {
       "source": "mattpocock/skills",
@@ -67,6 +121,18 @@
       "skillPath": "skills/productivity/handoff/SKILL.md",
       "computedHash": "9ea2a5de5ca2d717f913356de982fdc4fe27d28a300c16598cd43a4865491008"
     },
+    "humaniseur-fr": {
+      "source": "samber/cc-skills",
+      "sourceType": "github",
+      "skillPath": "skills/humaniseur-fr/SKILL.md",
+      "computedHash": "001dc416d113afab81f6d3751df773654cea02bf319d307daf30d12ee3525d77"
+    },
+    "humanizer-en-asd-ste100": {
+      "source": "samber/cc-skills",
+      "sourceType": "github",
+      "skillPath": "skills/humanizer-en-asd-ste100/SKILL.md",
+      "computedHash": "acf3e88206ff26d6c3636fd9d2373e5dfb9998055844f532c055e6b3fb491dc0"
+    },
     "implement": {
       "source": "mattpocock/skills",
       "sourceType": "github",
@@ -85,6 +151,18 @@
       "skillPath": "skills/engineering/improve-codebase-architecture/SKILL.md",
       "computedHash": "016f12709bff30a27419e8add978a9be70f5ca1fb6738b3be6793038e0aba631"
     },
+    "influence-and-negotiation": {
+      "source": "samber/cc-skills",
+      "sourceType": "github",
+      "skillPath": "skills/influence-and-negotiation/SKILL.md",
+      "computedHash": "3e71d71d0d50d64e998f3729ea58d848152ba9c1f5c60210c5e42cd91764f72b"
+    },
+    "linkedin-ghostwriting": {
+      "source": "samber/cc-skills",
+      "sourceType": "github",
+      "skillPath": "skills/linkedin-ghostwriting/SKILL.md",
+      "computedHash": "45f0732720682cc79b8bb1f5b1a37e12701b086ac5ad13c6d935dbf2c58e4749"
+    },
     "loop-me": {
       "source": "mattpocock/skills",
       "sourceType": "github",
@@ -96,6 +174,18 @@
       "sourceType": "github",
       "skillPath": "skills/misc/migrate-to-shoehorn/SKILL.md",
       "computedHash": "7d31e494a384d1a5b88d1dec6e1f50e673ef1a60f7b0b6e92babfbb242f79b62"
+    },
+    "press-release-writer": {
+      "source": "samber/cc-skills",
+      "sourceType": "github",
+      "skillPath": "skills/press-release-writer/SKILL.md",
+      "computedHash": "92da54bac9ba9c03b9d990bb97dacdd7651aaba9afaa150096792a9335b21af7"
+    },
+    "promql-cli": {
+      "source": "samber/cc-skills",
+      "sourceType": "github",
+      "skillPath": "skills/promql-cli/SKILL.md",
+      "computedHash": "20be44affd6d55a354683486d67dda7b3be135928c463491c4237369e0f96453"
     },
     "prototype": {
       "source": "mattpocock/skills",
@@ -145,6 +235,30 @@
       "skillPath": "skills/in-progress/setup-ts-deep-modules/SKILL.md",
       "computedHash": "0b0e7124ad1272d59e44bcb4224275e76421351294a91480ada62234158c1023"
     },
+    "site-launch-checklist": {
+      "source": "samber/cc-skills",
+      "sourceType": "github",
+      "skillPath": "skills/site-launch-checklist/SKILL.md",
+      "computedHash": "5ee52c61f0a39bfde3ad78ec4a4b27416796625f288268483cc08e324828006c"
+    },
+    "skill-progressive-disclosure-design": {
+      "source": "samber/cc-skills",
+      "sourceType": "github",
+      "skillPath": "skills/skill-progressive-disclosure-design/SKILL.md",
+      "computedHash": "35f1b9bbe22d6e0b1980e0629c2df2f84d13a0dc74d164aa34955ea5d827e0e6"
+    },
+    "snyk-agent-scan-compliance": {
+      "source": "samber/cc-skills",
+      "sourceType": "github",
+      "skillPath": "skills/snyk-agent-scan-compliance/SKILL.md",
+      "computedHash": "b77f30d97dcbc18a97e57eeda8daec9965eefc4822572d363b1543097cacbc9b"
+    },
+    "substack-ghostwriting": {
+      "source": "samber/cc-skills",
+      "sourceType": "github",
+      "skillPath": "skills/substack-ghostwriting/SKILL.md",
+      "computedHash": "f49315fdb9c983df6b0168c55c661fd8c280dd23f5e5ac76b6c00c27b1d23319"
+    },
     "tdd": {
       "source": "mattpocock/skills",
       "sourceType": "github",
@@ -156,6 +270,12 @@
       "sourceType": "github",
       "skillPath": "skills/productivity/teach/SKILL.md",
       "computedHash": "d5f74fa9a34961cf4df339019f7cd1ebf84163cf8b789829be26342e5ceba5a1"
+    },
+    "technical-article-writer": {
+      "source": "samber/cc-skills",
+      "sourceType": "github",
+      "skillPath": "skills/technical-article-writer/SKILL.md",
+      "computedHash": "01f55daa21c7d6976a2c7cb64a39ab1ce08adb30019f0ab07db674d4f30606d8"
     },
     "to-questionnaire": {
       "source": "mattpocock/skills",
@@ -174,6 +294,12 @@
       "sourceType": "github",
       "skillPath": "skills/engineering/to-tickets/SKILL.md",
       "computedHash": "4aba8639f46b55ede011866f83e9e87ae10482b72c14848389e5801eba0b37bf"
+    },
+    "training-report": {
+      "source": "samber/cc-skills",
+      "sourceType": "github",
+      "skillPath": "skills/training-report/SKILL.md",
+      "computedHash": "04a5401b7e205a70f0ccf7671bd983c32478e495f6f30aeb18eada8e147ed60d"
     },
     "triage": {
       "source": "mattpocock/skills",
